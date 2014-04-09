@@ -1,5 +1,7 @@
 <resources>
 
     <string name="app_name">FrogCare</string>
+    <string name="exit_tips">再按一次退出青蛙卫士</string>
+    <string name="version_tips">版本：</string>
 
 </resources>
