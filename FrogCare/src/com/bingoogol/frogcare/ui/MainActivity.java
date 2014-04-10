@@ -14,6 +14,7 @@ import com.bingoogol.frogcare.R;
 import com.bingoogol.frogcare.ui.view.BtnCallback;
 import com.bingoogol.frogcare.ui.view.PromptDialog;
 import com.bingoogol.frogcare.util.ISharedPreferences_;
+import com.bingoogol.frogcare.util.ToastUtil;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends Activity {
@@ -42,6 +43,7 @@ public class MainActivity extends Activity {
 
 	@AfterViews
 	public void afterViews() {
+		ToastUtil.makeText(mApp, "呵呵");
 	}
 
 	@Override
