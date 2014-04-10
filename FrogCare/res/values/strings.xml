@@ -1,7 +1,18 @@
 <resources>
 
-    <string name="app_name">FrogCare</string>
+    <string name="app_name">青蛙卫士</string>
     <string name="exit_tips">再按一次退出青蛙卫士</string>
-    <string name="version_tips">版本：</string>
+    <string name="operate_prompt">操作提示</string>
+    <string name="upgrade_now">立即更新</string>
+    <string name="upgrade_later">以后再说</string>
+    <string name="find_new_version">发现新版本</string>
+    <string name="current_version_tips">当前版本：</string>
+    <string name="new_version_tips">最新版本：</string>
+    <string name="whether_upgrade_tips">是否升级到新版本？</string>
+    <string name="sdcard_not_enough">SD卡存储空间不足</string>
+    <string name="change_applockpwd">修改程序锁密码</string>
+    <string name="please_input_applockpwd">请输入程序锁密码</string>
+    <string name="update">修改</string>
+    <string name="cancel">取消</string>
 
 </resources>

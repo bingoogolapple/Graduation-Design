@@ -30,7 +30,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.bingoogol.frogcare.ui.MainActivity_" />
+        <activity
+            android:name="com.bingoogol.frogcare.ui.MainActivity_"
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>

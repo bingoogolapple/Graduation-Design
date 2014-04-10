@@ -5,9 +5,4 @@
     android:background="@drawable/splash_root_bg"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
-
-    <TextView
-        android:id="@+id/tv_splash_version"
-        android:text="版本1.0"
-        style="@style/wrap_wrap" />
-</LinearLayout>
+</LinearLayout>

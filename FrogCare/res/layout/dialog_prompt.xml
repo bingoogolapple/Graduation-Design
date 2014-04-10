@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/ll_dialog_root_width"
+    android:layout_height="wrap_content"
+    android:background="@color/white_light"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_dialog_prompt_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green_title"
+        android:gravity="center"
+        android:padding="@dimen/dialog_padding"
+        android:text="@string/change_applockpwd"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/textSize_title" />
+
+    <EditText
+        android:id="@+id/et_dialog_prompt_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_light"
+        android:inputType="number"
+        android:padding="@dimen/dialog_padding"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/textSize_normal" />
+
+    <View style="@style/line_horizontal_gray" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/btn_dialog_prompt_ok"
+            style="@style/dialog_btn"
+            android:text="@string/upgrade_now" />
+
+        <View style="@style/line_vertical_gray" />
+
+        <Button
+            android:id="@+id/btn_dialog_prompt_cancel"
+            style="@style/dialog_btn"
+            android:text="@string/upgrade_later" />
+    </LinearLayout>
+
+</LinearLayout>
