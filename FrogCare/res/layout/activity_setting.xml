@@ -18,15 +18,15 @@
 
             <com.bingoogol.frogcare.ui.view.SettingView_
                 style="@style/match_wrap"
-                frogcare:content_off="自动更新已关闭"
-                frogcare:content_on="自动更新已开启"
-                frogcare:title="自动更新" />
+                frogcare:content_off="@string/auto_update_closed"
+                frogcare:content_on="@string/auto_update_opened"
+                frogcare:title="@string/auto_update" />
 
             <com.bingoogol.frogcare.ui.view.SettingView_
                 style="@style/match_wrap"
-                frogcare:content_off="程序锁已关闭"
-                frogcare:content_on="程序锁已开启"
-                frogcare:title="程序锁" />
+                frogcare:content_off="@string/app_lock_closed"
+                frogcare:content_on="@string/app_lock_opened"
+                frogcare:title="@string/app_lock" />
         </LinearLayout>
     </ScrollView>
 

@@ -25,16 +25,28 @@ public class SettingView extends RelativeLayout {
 	@ViewById
 	protected CheckBox cb_view_setting_status;
 
-	private String mContentOn;
-	private String mContentOff;
-	private String mTitle;
+	private CharSequence mContentOn;
+	private CharSequence mContentOff;
+	private CharSequence mTitle;
 
 	public SettingView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SettingView);
-		mTitle = a.getString(R.styleable.SettingView_title);
-		mContentOn = a.getString(R.styleable.SettingView_content_on);
-		mContentOff = a.getString(R.styleable.SettingView_content_off);
+		final int N = a.getIndexCount();
+		for (int i = 0; i < N; i++) {
+			int attr = a.getIndex(i);
+			switch (attr) {
+			case R.styleable.SettingView_title:
+				mTitle = a.getText(attr);
+				break;
+			case R.styleable.SettingView_content_on:
+				mContentOn = a.getText(attr);
+				break;
+			case R.styleable.SettingView_content_off:
+				mContentOff = a.getText(attr);
+				break;
+			}
+		}
 		a.recycle();
 	}
 
