@@ -4,17 +4,28 @@ import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.App;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.res.StringArrayRes;
 import org.androidannotations.annotations.sharedpreferences.Pref;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.view.KeyEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.BaseAdapter;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bingoogol.frogcare.FrogCareApplication;
 import com.bingoogol.frogcare.R;
 import com.bingoogol.frogcare.ui.view.BtnCallback;
 import com.bingoogol.frogcare.ui.view.PromptDialog;
 import com.bingoogol.frogcare.util.ISharedPreferences_;
-import com.bingoogol.frogcare.util.ToastUtil;
+import com.bingoogol.frogcare.util.Logger;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends Activity {
@@ -24,6 +35,16 @@ public class MainActivity extends Activity {
 	@Pref
 	ISharedPreferences_ mSp;
 	private long[] mClickMenuHits = new long[3];
+
+	@ViewById(R.id.gv_main_function)
+	GridView gv_main_function;
+
+	private static ImageView iv_item_main_function_icon;
+	private static TextView tv_item_main_function_name;
+
+	@StringArrayRes(R.array.functionnames)
+	String[] mFunctionNames;
+	private static int[] mFunctionIcons = new int[] { R.drawable.security, R.drawable.communicate, R.drawable.software, R.drawable.process, R.drawable.traffic, R.drawable.antivirus, R.drawable.optimize, R.drawable.tool, R.drawable.setting };
 
 	@AfterInject
 	public void afterInject() {
@@ -43,7 +64,47 @@ public class MainActivity extends Activity {
 
 	@AfterViews
 	public void afterViews() {
-		ToastUtil.makeText(mApp, "呵呵");
+		gv_main_function.setAdapter(new FunctionAdapter());
+		gv_main_function.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				Intent intent = null;
+				switch (position) {
+				case 0:
+					// 手机防盗
+					// 检查用户是否设置过密码
+
+					break;
+				case 1:
+					// 通讯卫士
+					break;
+				case 2:
+					// 软件管理
+					break;
+				case 3:
+					// 进程管理
+					break;
+				case 4:
+					// 流量统计
+					break;
+				case 5:
+					// 手机杀毒
+					break;
+				case 6:
+					// 系统优化
+					break;
+				case 7:
+					// 高级工具
+					break;
+				case 8:
+					// 设置中心
+					intent = new Intent(mApp, SettingActivity_.class);
+					startActivity(intent);
+					break;
+				}
+			}
+		});
 	}
 
 	@Override
@@ -68,6 +129,7 @@ public class MainActivity extends Activity {
 				if (appLockPwd.length() == 0) {
 					pd.shake();
 				} else {
+					Logger.d(TAG, "修改程序锁密码成功");
 					pd.dismiss();
 					mSp.appLockPwd().put(appLockPwd);
 				}
@@ -78,5 +140,35 @@ public class MainActivity extends Activity {
 			}
 		});
 		pd.show();
+	}
+
+	private class FunctionAdapter extends BaseAdapter {
+
+		@Override
+		public int getCount() {
+			return mFunctionNames.length;
+		}
+
+		@Override
+		public Object getItem(int position) {
+			return mFunctionNames[position];
+		}
+
+		@Override
+		public long getItemId(int position) {
+			return position;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			convertView = View.inflate(mApp, R.layout.item_main_function, null);
+			// 会调用多次，使用静态的变量引用，减少内存中申请的引用的个数
+			iv_item_main_function_icon = (ImageView) convertView.findViewById(R.id.iv_item_main_function_icon);
+			tv_item_main_function_name = (TextView) convertView.findViewById(R.id.tv_item_main_function_name);
+			iv_item_main_function_icon.setBackgroundResource(mFunctionIcons[position]);
+			tv_item_main_function_name.setText(mFunctionNames[position]);
+			return convertView;
+		}
+
 	}
 }

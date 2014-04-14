@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- xhdpi -->
     <!-- 文字 START -->
     <dimen name="textSize_title">20sp</dimen>
     <dimen name="textSize_normal">15sp</dimen>
     <!-- 文字 END -->
     <!-- dialog START -->
-    <dimen name="ll_dialog_root_width">230dp</dimen>
+    <dimen name="dialog_root_width">230dp</dimen>
     <dimen name="dialog_padding">10dp</dimen>
     <!-- dialog END -->
     <!-- 主页 START -->
     <dimen name="tv_main_title_padding">10dp</dimen>
+    <dimen name="gv_main_function_marginTop">60dp</dimen>
+    <dimen name="gv_main_function_horizontalSpacing">5dp</dimen>
+    <dimen name="gv_main_function_verticalSpacing">10dp</dimen>
+    <dimen name="iv_item_main_function_icon_size">100dp</dimen>
+    <dimen name="tv_item_main_function_name">30dp</dimen>
+
     <!-- 主页 END -->
 
 </resources>

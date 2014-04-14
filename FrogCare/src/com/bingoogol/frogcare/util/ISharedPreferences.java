@@ -7,9 +7,9 @@ import org.androidannotations.annotations.sharedpreferences.SharedPref.Scope;
 
 @SharedPref(value = Scope.UNIQUE)
 public interface ISharedPreferences {
-	@DefaultBoolean(true)
+	@DefaultBoolean(false)
 	boolean autoUpdate();
-	
+
 	@DefaultString("")
 	String appLockPwd();
 }
