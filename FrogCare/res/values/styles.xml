@@ -20,6 +20,24 @@
         <item name="android:layout_height">match_parent</item>
     </style>
 
+    <style name="match_one">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+    </style>
+
+    <style name="one_match">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    
+    <style name="title_top" parent="@style/match_wrap">
+        <item name="android:background">@drawable/frog_bg</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white_light</item>
+        <item name="android:textSize">@dimen/textSize_title</item>
+        <item name="android:padding">@dimen/title_top_padding</item>
+    </style>
+
     <!-- Dialog START -->
     <style name="DialogTheme" parent="@android:style/Theme.Dialog">
         <item name="android:windowNoTitle">true</item>
@@ -38,15 +56,11 @@
         <item name="android:textSize">@dimen/textSize_normal</item>
     </style>
 
-    <style name="line_horizontal_gray">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">1dp</item>
+    <style name="line_horizontal_gray" parent="@style/match_one">
         <item name="android:background">@color/gray_line</item>
     </style>
 
-    <style name="line_vertical_gray">
-        <item name="android:layout_width">1dp</item>
-        <item name="android:layout_height">match_parent</item>
+    <style name="line_vertical_gray" parent="@style/one_match">
         <item name="android:background">@color/gray_line</item>
     </style>
     <!-- Dialog END -->

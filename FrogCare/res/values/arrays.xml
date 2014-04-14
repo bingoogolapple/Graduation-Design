@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="functionnames">
+    <string-array name="functionNames">
         <item>手机防盗</item>
         <item>通讯卫士</item>
         <item>软件管理</item>

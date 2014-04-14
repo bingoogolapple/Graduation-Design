@@ -36,14 +36,14 @@ public class MainActivity extends Activity {
 	ISharedPreferences_ mSp;
 	private long[] mClickMenuHits = new long[3];
 
-	@ViewById(R.id.gv_main_function)
+	@ViewById
 	GridView gv_main_function;
 
 	private static ImageView iv_item_main_function_icon;
 	private static TextView tv_item_main_function_name;
 
-	@StringArrayRes(R.array.functionnames)
-	String[] mFunctionNames;
+	@StringArrayRes
+	String[] functionNames;
 	private static int[] mFunctionIcons = new int[] { R.drawable.security, R.drawable.communicate, R.drawable.software, R.drawable.process, R.drawable.traffic, R.drawable.antivirus, R.drawable.optimize, R.drawable.tool, R.drawable.setting };
 
 	@AfterInject
@@ -146,12 +146,12 @@ public class MainActivity extends Activity {
 
 		@Override
 		public int getCount() {
-			return mFunctionNames.length;
+			return functionNames.length;
 		}
 
 		@Override
 		public Object getItem(int position) {
-			return mFunctionNames[position];
+			return functionNames[position];
 		}
 
 		@Override
@@ -166,7 +166,7 @@ public class MainActivity extends Activity {
 			iv_item_main_function_icon = (ImageView) convertView.findViewById(R.id.iv_item_main_function_icon);
 			tv_item_main_function_name = (TextView) convertView.findViewById(R.id.tv_item_main_function_name);
 			iv_item_main_function_icon.setBackgroundResource(mFunctionIcons[position]);
-			tv_item_main_function_name.setText(mFunctionNames[position]);
+			tv_item_main_function_name.setText(functionNames[position]);
 			return convertView;
 		}
 

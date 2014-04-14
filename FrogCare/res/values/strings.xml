@@ -14,5 +14,6 @@
     <string name="please_input_applockpwd">请输入程序锁密码</string>
     <string name="update">修改</string>
     <string name="cancel">取消</string>
+    <string name="setting_center">设置中心</string>
 
 </resources>

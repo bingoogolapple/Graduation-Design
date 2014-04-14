@@ -5,14 +5,8 @@
     android:orientation="vertical" >
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/green_title"
-        android:gravity="center"
-        android:padding="@dimen/tv_main_title_padding"
-        android:text="@string/app_name"
-        android:textColor="@color/white_light"
-        android:textSize="@dimen/textSize_title" />
+        style="@style/title_top"
+        android:text="@string/app_name" />
 
     <GridView
         android:id="@+id/gv_main_function"

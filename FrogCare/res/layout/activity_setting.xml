@@ -1,13 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/ll_splash_root"
+    xmlns:frogcare="http://schemas.android.com/apk/res/com.bingoogol.frogcare"
     style="@style/match_match"
-    android:gravity="center_horizontal"
     android:orientation="vertical" >
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="设置中心" />
+        style="@style/title_top"
+        android:text="@string/setting_center" />
+
+    <ScrollView
+        style="@style/match_match"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            style="@style/match_match"
+            android:orientation="vertical" >
+
+            <com.bingoogol.frogcare.ui.view.SettingView_
+                style="@style/match_wrap"
+                frogcare:content_off="自动更新已关闭"
+                frogcare:content_on="自动更新已开启"
+                frogcare:title="自动更新" />
+
+            <com.bingoogol.frogcare.ui.view.SettingView_
+                style="@style/match_wrap"
+                frogcare:content_off="程序锁已关闭"
+                frogcare:content_on="程序锁已开启"
+                frogcare:title="程序锁" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

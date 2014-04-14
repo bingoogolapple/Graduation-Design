@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/match_wrap" >
+
+    <TextView
+        android:id="@+id/tv_view_setting_title"
+        style="@style/wrap_wrap"
+        android:layout_margin="@dimen/view_setting_margin"
+        android:text="标题"
+        android:textSize="@dimen/textSize_middle" />
+
+    <TextView
+        android:id="@+id/tv_view_setting_content"
+        style="@style/wrap_wrap"
+        android:layout_below="@id/tv_view_setting_title"
+        android:layout_margin="@dimen/view_setting_margin"
+        android:text="状态"
+        android:textSize="@dimen/textSize_normal" />
+
+    <CheckBox
+        android:id="@+id/cb_view_setting_status"
+        style="@style/wrap_wrap"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:clickable="false"
+        android:focusable="false" />
+
+    <View
+        style="@style/match_one"
+        android:layout_below="@id/tv_view_setting_content"
+        android:background="@drawable/horizontal_dot" />
+
+</RelativeLayout>
