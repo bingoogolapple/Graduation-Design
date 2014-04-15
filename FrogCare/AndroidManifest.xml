@@ -34,6 +34,8 @@
             android:name="com.bingoogol.frogcare.ui.MainActivity_"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name="com.bingoogol.frogcare.ui.SettingActivity_" />
+        <activity android:name="com.bingoogol.frogcare.ui.ToolActivity_" />
+        <activity android:name="com.bingoogol.frogcare.ui.AppLockActivity_" />
     </application>
 
 </manifest>

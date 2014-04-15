@@ -9,7 +9,6 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.widget.CheckBox;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -73,9 +72,5 @@ public class SettingView extends RelativeLayout {
 			tv_view_setting_content.setText(mContentOff);
 			tv_view_setting_content.setTextColor(Color.RED);
 		}
-	}
-
-	public void setOnclickedListener(OnCheckedChangeListener listener) {
-		cb_view_setting_status.setOnCheckedChangeListener(listener);
 	}
 }

@@ -7,6 +7,7 @@
         style="@style/wrap_wrap"
         android:layout_margin="@dimen/view_setting_margin"
         android:text="标题"
+        android:textColor="@color/white_light"
         android:textSize="@dimen/textSize_middle" />
 
     <TextView
@@ -15,7 +16,7 @@
         android:layout_below="@id/tv_view_setting_title"
         android:layout_margin="@dimen/view_setting_margin"
         android:text="状态"
-        android:textSize="@dimen/textSize_normal" />
+        android:textSize="@dimen/textSize_small" />
 
     <CheckBox
         android:id="@+id/cb_view_setting_status"

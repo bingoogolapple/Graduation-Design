@@ -6,5 +6,9 @@
         <attr name="content_on" format="reference|string" />
         <attr name="content_off" format="reference|string" />
     </declare-styleable>
+    <declare-styleable name="ITView">
+        <attr name="src" format="reference" />
+        <attr name="text" format="reference|string" />
+    </declare-styleable>
 
 </resources>

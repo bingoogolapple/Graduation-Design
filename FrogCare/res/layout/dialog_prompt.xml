@@ -14,7 +14,7 @@
         android:padding="@dimen/dialog_padding"
         android:text="@string/change_applockpwd"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/textSize_title" />
+        android:textSize="@dimen/textSize_large" />
 
     <EditText
         android:id="@+id/et_dialog_prompt_content"
@@ -24,7 +24,7 @@
         android:inputType="number"
         android:padding="@dimen/dialog_padding"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/textSize_normal" />
+        android:textSize="@dimen/textSize_small" />
 
     <View style="@style/line_horizontal_gray" />
 

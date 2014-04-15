@@ -6,9 +6,9 @@
     <dimen name="title_top_padding">10dp</dimen>
     <!-- 公共的 END -->
     <!-- 文字 START -->
-    <dimen name="textSize_title">20sp</dimen>
-    <dimen name="textSize_middle">20sp</dimen>
-    <dimen name="textSize_normal">15sp</dimen>
+    <dimen name="textSize_large">20sp</dimen>
+    <dimen name="textSize_middle">18sp</dimen>
+    <dimen name="textSize_small">15sp</dimen>
     <!-- 文字 END -->
     <!-- dialog START -->
     <dimen name="dialog_root_width">230dp</dimen>

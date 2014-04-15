@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:frogcare="http://schemas.android.com/apk/res/com.bingoogol.frogcare"
     style="@style/match_match"
+    android:background="@drawable/common_bg"
     android:orientation="vertical" >
 
     <TextView
@@ -17,16 +18,18 @@
             android:orientation="vertical" >
 
             <com.bingoogol.frogcare.ui.view.SettingView_
+                android:id="@+id/sv_setting_autoupdate"
                 style="@style/match_wrap"
-                frogcare:content_off="@string/auto_update_closed"
-                frogcare:content_on="@string/auto_update_opened"
-                frogcare:title="@string/auto_update" />
+                frogcare:content_off="@string/autoupdate_closed"
+                frogcare:content_on="@string/autoupdate_opened"
+                frogcare:title="@string/autoupdate" />
 
             <com.bingoogol.frogcare.ui.view.SettingView_
+                android:id="@+id/sv_setting_applock"
                 style="@style/match_wrap"
-                frogcare:content_off="@string/app_lock_closed"
-                frogcare:content_on="@string/app_lock_opened"
-                frogcare:title="@string/app_lock" />
+                frogcare:content_off="@string/applock_closed"
+                frogcare:content_on="@string/applock_opened"
+                frogcare:title="@string/applock" />
         </LinearLayout>
     </ScrollView>
 

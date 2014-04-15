@@ -31,19 +31,19 @@ import com.bingoogol.frogcare.util.Logger;
 public class MainActivity extends Activity {
 	private static final String TAG = "MainActivity";
 	@App
-	FrogCareApplication mApp;
+	protected FrogCareApplication mApp;
 	@Pref
 	ISharedPreferences_ mSp;
 	private long[] mClickMenuHits = new long[3];
 
 	@ViewById
-	GridView gv_main_function;
+	protected GridView gv_main_function;
 
 	private static ImageView iv_item_main_function_icon;
 	private static TextView tv_item_main_function_name;
 
 	@StringArrayRes
-	String[] functionNames;
+	protected String[] functionNames;
 	private static int[] mFunctionIcons = new int[] { R.drawable.security, R.drawable.communicate, R.drawable.software, R.drawable.process, R.drawable.traffic, R.drawable.antivirus, R.drawable.optimize, R.drawable.tool, R.drawable.setting };
 
 	@AfterInject
@@ -96,6 +96,8 @@ public class MainActivity extends Activity {
 					break;
 				case 7:
 					// 高级工具
+					intent = new Intent(mApp, ToolActivity_.class);
+					startActivity(intent);
 					break;
 				case 8:
 					// 设置中心

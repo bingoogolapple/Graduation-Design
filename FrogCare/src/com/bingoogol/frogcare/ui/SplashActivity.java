@@ -41,12 +41,12 @@ import com.bingoogol.frogcare.util.ToastUtil;
 public class SplashActivity extends Activity {
 	private static final String TAG = "SplashActivity";
 	@App
-	FrogCareApplication mApp;
+	protected FrogCareApplication mApp;
 	@Pref
-	ISharedPreferences_ mSp;
+	protected ISharedPreferences_ mSp;
 
 	@HttpsClient
-	HttpClient mHttpClient;
+	protected HttpClient mHttpClient;
 
 	private String mApkurl;
 

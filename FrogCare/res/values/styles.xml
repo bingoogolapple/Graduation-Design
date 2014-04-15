@@ -34,7 +34,7 @@
         <item name="android:background">@drawable/frog_bg</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/white_light</item>
-        <item name="android:textSize">@dimen/textSize_title</item>
+        <item name="android:textSize">@dimen/textSize_large</item>
         <item name="android:padding">@dimen/title_top_padding</item>
     </style>
 
@@ -53,7 +53,7 @@
         <item name="android:gravity">center</item>
         <item name="android:paddingBottom">@dimen/dialog_padding</item>
         <item name="android:paddingTop">@dimen/dialog_padding</item>
-        <item name="android:textSize">@dimen/textSize_normal</item>
+        <item name="android:textSize">@dimen/textSize_small</item>
     </style>
 
     <style name="line_horizontal_gray" parent="@style/match_one">

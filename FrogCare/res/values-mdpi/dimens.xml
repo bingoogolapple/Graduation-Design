@@ -7,9 +7,9 @@
 
     <!-- 公共的 END -->
     <!-- 文字 START -->
-    <dimen name="textSize_title">30sp</dimen>
+    <dimen name="textSize_large">30sp</dimen>
     <dimen name="textSize_middle">25sp</dimen>
-    <dimen name="textSize_normal">20sp</dimen>
+    <dimen name="textSize_small">20sp</dimen>
     <!-- 文字 END -->
     <!-- dialog START -->
     <dimen name="dialog_root_width">320dp</dimen>
