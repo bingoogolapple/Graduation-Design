@@ -6,6 +6,9 @@ public final class Constants {
 	public static final class what {
 
 	}
+	public static final class extra {
+		public static final String PACKAGENAME = "packagename";
+	}
 
 	public static final class file {
 		public static final String DIR_ROOT = "FrogCare";

@@ -12,6 +12,8 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
 
     <application
         android:name="com.bingoogol.frogcare.FrogCareApplication_"
@@ -36,6 +38,19 @@
         <activity android:name="com.bingoogol.frogcare.ui.SettingActivity_" />
         <activity android:name="com.bingoogol.frogcare.ui.ToolActivity_" />
         <activity android:name="com.bingoogol.frogcare.ui.AppLockActivity_" />
+        <!-- android:excludeFromRecents="true" 程序正在运行或者退出，在长按HOME键的最近程序列表中不显示该应用以达到隐藏进程的目的 -->
+        <activity
+            android:name="com.bingoogol.frogcare.ui.AppLockAuthActivity_"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance" />
+
+        <service android:name="com.bingoogol.frogcare.service.WatchDogService_" />
+
+        <receiver android:name="com.bingoogol.frogcare.receiver.BootCompleteReceiver_" >
+            <intent-filter android:priority="1000" >
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

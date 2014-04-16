@@ -11,6 +11,7 @@ import android.app.Activity;
 
 import com.bingoogol.frogcare.FrogCareApplication;
 import com.bingoogol.frogcare.R;
+import com.bingoogol.frogcare.service.WatchDogService_;
 import com.bingoogol.frogcare.ui.view.SettingView;
 import com.bingoogol.frogcare.util.ISharedPreferences_;
 
@@ -45,15 +46,16 @@ public class SettingActivity extends Activity {
 		}
 	}
 
+	@Click
 	public void sv_setting_applock() {
 		if (sv_setting_applock.isChecked()) {
 			sv_setting_applock.setChecked(false);
 			mSp.appLock().put(false);
-			// TODO
+			WatchDogService_.intent(mApp).stop();
 		} else {
 			sv_setting_applock.setChecked(true);
 			mSp.appLock().put(true);
-			// TODO
+			WatchDogService_.intent(mApp).start();
 		}
 	}
 
