@@ -53,20 +53,11 @@ public class WatchDogService extends Service {
 
 	@Override
 	public IBinder onBind(Intent intent) {
-		Logger.i(TAG, "服务被绑定");
 		return new MyBinder();
-	}
-
-	@Override
-	public void onCreate() {
-		Logger.i(TAG, "onCreate1");
-		super.onCreate();
-		Logger.i(TAG, "onCreate2");
 	}
 
 	@AfterInject
 	public void afterInject() {
-		Logger.i(TAG, "afterInject");
 		mTempStopProtectPackageNames = new ArrayList<String>();
 		mProtectPackageNames = mAppLockDao.findAll();
 
@@ -113,7 +104,7 @@ public class WatchDogService extends Service {
 				}
 			}
 			try {
-				Thread.sleep(500);
+				Thread.sleep(300);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

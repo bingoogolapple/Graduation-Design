@@ -192,11 +192,11 @@ public class AppLockActivity extends Activity {
 		@Override
 		public int getCount() {
 			if (unlockFlag) {// 未加锁应用
-				tv_unlock_count.setText("未加锁应用" + mUnlockAppInfos.size() + "个");
+				tv_unlock_count.setText(getString(R.string.unlock_count) + mUnlockAppInfos.size());
 				return mUnlockAppInfos.size();
 
 			} else {// 已加锁应用
-				tv_locked_count.setText("已加锁应用" + mLockedAppInfos.size() + "个");
+				tv_locked_count.setText(getString(R.string.locked_count) + mLockedAppInfos.size());
 				return mLockedAppInfos.size();
 			}
 		}

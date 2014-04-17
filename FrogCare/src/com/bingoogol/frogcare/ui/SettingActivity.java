@@ -14,6 +14,7 @@ import com.bingoogol.frogcare.R;
 import com.bingoogol.frogcare.service.WatchDogService_;
 import com.bingoogol.frogcare.ui.view.SettingView;
 import com.bingoogol.frogcare.util.ISharedPreferences_;
+import com.bingoogol.frogcare.util.ServiceStatusUtils;
 
 @EActivity(R.layout.activity_setting)
 public class SettingActivity extends Activity {
@@ -32,7 +33,18 @@ public class SettingActivity extends Activity {
 	@AfterViews
 	public void afterViews() {
 		sv_setting_autoupdate.setChecked(mSp.autoUpdate().get());
-		sv_setting_applock.setChecked(mSp.appLock().get());
+	}
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+		if (ServiceStatusUtils.isServiceRunning(mApp, WatchDogService_.class.getName())) {
+			mSp.appLock().put(true);
+			sv_setting_applock.setChecked(true);
+		} else {
+			mSp.appLock().put(false);
+			sv_setting_applock.setChecked(false);
+		}
 	}
 
 	@Click

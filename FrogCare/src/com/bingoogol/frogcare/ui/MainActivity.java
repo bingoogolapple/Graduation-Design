@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
 	protected GridView gv_main_function;
 
 	private static ImageView iv_item_main_function_icon;
-	private static TextView tv_item_main_function_name;
+	private static TextView tv_item_main_function_name_height_height;
 
 	@StringArrayRes
 	protected String[] functionNames;
@@ -166,9 +166,9 @@ public class MainActivity extends Activity {
 			convertView = View.inflate(mApp, R.layout.item_main_function, null);
 			// 会调用多次，使用静态的变量引用，减少内存中申请的引用的个数
 			iv_item_main_function_icon = (ImageView) convertView.findViewById(R.id.iv_item_main_function_icon);
-			tv_item_main_function_name = (TextView) convertView.findViewById(R.id.tv_item_main_function_name);
+			tv_item_main_function_name_height_height = (TextView) convertView.findViewById(R.id.tv_item_main_function_name);
 			iv_item_main_function_icon.setBackgroundResource(mFunctionIcons[position]);
-			tv_item_main_function_name.setText(functionNames[position]);
+			tv_item_main_function_name_height_height.setText(functionNames[position]);
 			return convertView;
 		}
 

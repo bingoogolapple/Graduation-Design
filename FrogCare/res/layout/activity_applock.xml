@@ -42,13 +42,16 @@
             <TextView
                 android:id="@+id/tv_unlock_count"
                 style="@style/match_wrap"
-                android:background="@color/blue"
-                android:text="未加锁应用x个"
-                android:textSize="@dimen/textSize_small" />
+                android:background="@color/green_trans"
+                android:padding="@dimen/tv_applock_count_padding"
+                android:text="@string/unlock_count"
+                android:textColor="@color/white_light"
+                android:textSize="@dimen/textSize_middle" />
 
             <ListView
                 android:id="@+id/lv_unlock"
-                style="@style/match_match" >
+                style="@style/match_match"
+                android:cacheColorHint="@android:color/transparent" >
             </ListView>
         </LinearLayout>
 
@@ -61,13 +64,16 @@
             <TextView
                 android:id="@+id/tv_locked_count"
                 style="@style/match_wrap"
-                android:background="@color/blue"
-                android:text="已加锁应用x个"
-                android:textSize="@dimen/textSize_small" />
+                android:background="@color/green_trans"
+                android:padding="@dimen/tv_applock_count_padding"
+                android:text="@string/locked_count"
+                android:textColor="@color/white_light"
+                android:textSize="@dimen/textSize_middle" />
 
             <ListView
                 android:id="@+id/lv_locked"
-                style="@style/match_match" >
+                style="@style/match_match"
+                android:cacheColorHint="@android:color/transparent" >
             </ListView>
         </LinearLayout>
     </FrameLayout>

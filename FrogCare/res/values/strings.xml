@@ -25,5 +25,7 @@
     <string name="onekey_shutdown">一键关机</string>
     <string name="unlock">未加锁</string>
     <string name="locked">已加锁</string>
+    <string name="unlock_count">未加锁应用个数：</string>
+    <string name="locked_count">已加锁应用个数：</string>
 
 </resources>
