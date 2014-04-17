@@ -51,7 +51,8 @@
             <ListView
                 android:id="@+id/lv_unlock"
                 style="@style/match_match"
-                android:cacheColorHint="@android:color/transparent" >
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="@drawable/horizontal_dot" >
             </ListView>
         </LinearLayout>
 
@@ -73,7 +74,8 @@
             <ListView
                 android:id="@+id/lv_locked"
                 style="@style/match_match"
-                android:cacheColorHint="@android:color/transparent" >
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="@drawable/horizontal_dot" >
             </ListView>
         </LinearLayout>
     </FrameLayout>
