@@ -10,6 +10,7 @@ import org.androidannotations.annotations.sharedpreferences.Pref;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -111,6 +112,9 @@ public class MainActivity extends Activity {
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		DisplayMetrics dm = new DisplayMetrics();
+
+		getWindowManager().getDefaultDisplay().getMetrics(dm);
 		if (KeyEvent.KEYCODE_MENU == keyCode) {
 			System.arraycopy(mClickMenuHits, 1, mClickMenuHits, 0, mClickMenuHits.length - 1);
 			mClickMenuHits[mClickMenuHits.length - 1] = System.currentTimeMillis();
