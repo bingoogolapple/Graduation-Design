@@ -1,88 +1,20 @@
 <resources>
 
-    <style name="Theme.Splash" parent="@android:style/Theme.Light.NoTitleBar">
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowAnimationStyle">@style/Animation.Activity.Splash</item>
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
     </style>
 
-    <style name="Animation.Activity.Splash" parent="@android:style/Animation.Activity">
-        <item name="android:activityOpenEnterAnimation">@*android:anim/fade_in</item>
-        <item name="android:activityOpenExitAnimation">@*android:anim/fade_out</item>
-        <item name="android:activityCloseEnterAnimation">@*android:anim/fade_in</item>
-        <item name="android:activityCloseExitAnimation">@*android:anim/fade_out</item>
-        <item name="android:taskOpenEnterAnimation">@*android:anim/fade_in</item>
-        <item name="android:taskOpenExitAnimation">@*android:anim/fade_out</item>
-        <item name="android:taskCloseEnterAnimation">@*android:anim/fade_in</item>
-        <item name="android:taskCloseExitAnimation">@*android:anim/fade_out</item>
-        <item name="android:taskToFrontEnterAnimation">@*android:anim/fade_in</item>
-        <item name="android:taskToFrontExitAnimation">@*android:anim/fade_out</item>
-        <item name="android:taskToBackEnterAnimation">@*android:anim/fade_in</item>
-        <item name="android:taskToBackExitAnimation">@*android:anim/fade_out</item>
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-
-    <style name="wrap_match">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">match_parent</item>
-    </style>
-
-    <style name="match_wrap">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-
-    <style name="wrap_wrap">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-
-    <style name="match_match">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-    </style>
-
-    <style name="match_one">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">1dp</item>
-    </style>
-
-    <style name="one_match">
-        <item name="android:layout_width">1dp</item>
-        <item name="android:layout_height">match_parent</item>
-    </style>
-
-    <style name="title_top" parent="@style/match_wrap">
-        <item name="android:background">@drawable/frog_bg</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/white_light</item>
-        <item name="android:textSize">@dimen/textSize_large</item>
-        <item name="android:padding">@dimen/title_top_padding</item>
-    </style>
-
-    <!-- Dialog START -->
-    <style name="DialogTheme" parent="@android:style/Theme.Dialog">
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:background">@android:color/transparent</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-    </style>
-
-    <style name="dialog_btn">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:background">@color/white_light</item>
-        <item name="android:gravity">center</item>
-        <item name="android:paddingBottom">@dimen/dialog_padding</item>
-        <item name="android:paddingTop">@dimen/dialog_padding</item>
-        <item name="android:textSize">@dimen/textSize_small</item>
-    </style>
-
-    <style name="line_horizontal_gray" parent="@style/match_one">
-        <item name="android:background">@color/gray_line</item>
-    </style>
-
-    <style name="line_vertical_gray" parent="@style/one_match">
-        <item name="android:background">@color/gray_line</item>
-    </style>
-    <!-- Dialog END -->
 
 </resources>

@@ -1,0 +1,65 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bingoogol.frogcare"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <application
+        android:name="com.bingoogol.frogcare.FrogCareApplication_"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Light.NoTitleBar" >
+        <activity
+            android:name="com.bingoogol.frogcare.ui.SplashActivity_"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Splash" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.bingoogol.frogcare.ui.MainActivity_"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.bingoogol.frogcare.ui.SettingActivity_"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bingoogol.frogcare.ui.ToolActivity_"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bingoogol.frogcare.ui.AppLockActivity_"
+            android:screenOrientation="portrait" />
+        <!-- android:excludeFromRecents="true" 程序正在运行或者退出，在长按HOME键的最近程序列表中不显示该应用以达到隐藏进程的目的 -->
+        <activity
+            android:name="com.bingoogol.frogcare.ui.AppLockAuthActivity_"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait" />
+
+        <service android:name="com.bingoogol.frogcare.service.WatchDogService_" />
+
+        <receiver android:name="com.bingoogol.frogcare.receiver.BootCompleteReceiver_" >
+            <intent-filter android:priority="1000" >
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
