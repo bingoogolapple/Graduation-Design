@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/match_match"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <TextView
+        style="@style/wrap_wrap"
+        android:text="主界面"
+        android:textSize="40sp" />
+
+</LinearLayout>

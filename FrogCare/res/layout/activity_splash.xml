@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/match_match"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <TextView
+        style="@style/wrap_wrap"
+        android:textColor="@android:color/white"
+        android:text="青蛙卫士" />
+
+    <TextView
+        android:id="@+id/tv_splash_versionName"
+        style="@style/wrap_wrap" />
+
+</LinearLayout>
