@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="functionNames">
+        <item>手机\n防盗</item>
+        <item>通讯\n卫士</item>
+        <item>软件\n管理</item>
+        <item>进程\n管理</item>
+        <item>流量\n统计</item>
+        <item>手机\n杀毒</item>
+        <item>系统\n优化</item>
+        <item>高级\n工具</item>
+        <item>设置\n中心</item>
+    </string-array>
+
+</resources>

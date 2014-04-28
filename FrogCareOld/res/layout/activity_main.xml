@@ -11,7 +11,6 @@
     <GridView
         android:id="@+id/gv_main_function"
         style="@style/match_match"
-        android:layout_width="match_parent"
         android:layout_marginTop="@dimen/gv_main_function_marginTop"
         android:horizontalSpacing="@dimen/gv_main_function_horizontalSpacing"
         android:listSelector="@android:color/transparent"

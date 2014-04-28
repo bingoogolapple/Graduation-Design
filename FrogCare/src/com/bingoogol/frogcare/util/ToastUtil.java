@@ -1,7 +1,12 @@
 package com.bingoogol.frogcare.util;
 
 import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bingoogol.frogcare.R;
 
 /**
  * 吐丝工具类
@@ -22,11 +27,17 @@ public class ToastUtil {
 	 *            要显示的文本
 	 */
 	public static void makeText(Context context, CharSequence text) {
+		Toast toast = new Toast(context);
+		View view = LayoutInflater.from(context).inflate(R.layout.custom_toast, null);
+		TextView tv_custom_toast_msg = (TextView) view.findViewById(R.id.tv_toast_msg);
+		tv_custom_toast_msg.setText(text);
+		toast.setView(view);
 		if (text.length() > 10) {
-			Toast.makeText(context, text, Toast.LENGTH_LONG).show();
+			toast.setDuration(Toast.LENGTH_LONG);
 		} else {
-			Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+			toast.setDuration(Toast.LENGTH_SHORT);
 		}
+		toast.show();
 	}
 
 	/**

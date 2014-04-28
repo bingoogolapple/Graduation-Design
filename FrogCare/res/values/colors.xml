@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+背景黑（最底部背景一，主界面，其他界面头部背景） 212025
+背景黑（最底部背景二，其他界面） 18171B
+背景黑（包括标题背景，list分类背景） 29282D
+
+设置界面条目按下时的蓝色背景  234567
+list条目数量背景 3F3E42
+字体灰 747474
+对话框里的内容灰色字体 BEBEBE
+白色（字体） FFFFFF
+蓝色（字体按下） 2BB8FF
+黑色分割线 0D0D0E
+背景黑（功能按钮背景，进度条黑背景） 3D3D41
+蓝色进度条 2DB8FF
+输入框背景（对话框背景色） 313134
+吐司背景 0B0A0C
+吐司文字 DFDFE0功能按钮按下背景 353539
+蓝色按钮背景 1289C3
+蓝色按钮背景按下 056898
+按钮按下前的灰色背景 3B3B3E
+按钮按下后的灰色背景 28282B
+    -->
+    <color name="bg_root_black">#18171B</color>
+    <color name="bg_title_top">#212025</color>
+    <color name="bg_black">#29282D</color>
+    <color name="bg_gray_number">#3F3E42</color>
+    <color name="text_gray">#747474</color>
+    <color name="text_gray_dialog">#BEBEBE</color>
+    <color name="text_blue_pressed">#2BB8FF</color>
+    <color name="divider">#0D0D0E</color>
+    <color name="bg_progressbar_function_gray">#3D3D41</color>
+    <color name="bg_function_gray_pressed">#353539</color>
+    <color name="bg_progressbar_blue">#2DB8FF</color>
+    <color name="bg_input_and_dialog">#313134</color>
+    <color name="text_toast">#DFDFE0</color>
+    <color name="btn_blue">#1289C3</color>
+    <color name="btn_blue_pressed">#056898</color>
+    <color name="btn_gray">#3B3B3E</color>
+    <color name="btn_gray_pressed">#28282B</color>
+    <color name="bg_toast">#0B0A0C</color>
+    <color name="bg_setting_view_pressed">#234567</color>
+
+</resources>

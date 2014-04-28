@@ -8,15 +8,21 @@ import org.json.JSONObject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.TextView;
 
 import com.bingoogol.frogcare.R;
+import com.bingoogol.frogcare.ui.view.BtnCallback;
+import com.bingoogol.frogcare.ui.view.ConfirmDialog;
+import com.bingoogol.frogcare.ui.view.PDialog;
 import com.bingoogol.frogcare.util.ConnectivityUtil;
 import com.bingoogol.frogcare.util.Constants;
 import com.bingoogol.frogcare.util.Logger;
 import com.bingoogol.frogcare.util.SpUtil;
 import com.bingoogol.frogcare.util.StorageUtil;
+import com.bingoogol.frogcare.util.ToastUtil;
 import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.FileAsyncHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 public class SplashActivity extends BaseActivity {
@@ -25,6 +31,8 @@ public class SplashActivity extends BaseActivity {
 	private String mApkUrl;
 	// 新版本名称
 	private String mVersionName;
+
+	private PDialog mPDialog;
 
 	@Override
 	protected void initView() {
@@ -42,13 +50,12 @@ public class SplashActivity extends BaseActivity {
 	}
 
 	private void checkVersion() {
-		if (SpUtil.getBoolean(Constants.spkey.AUTO_UPGRADE, false) && ConnectivityUtil.isWifiConnected(mApp) && StorageUtil.isExternalStorageWritable()) {
-			new AsyncHttpClient().get(Constants.config.UPGRADE_URL, new JsonHttpResponseHandler("") {
+		if (SpUtil.getBoolean(Constants.spkey.AUTO_UPGRADE, true) && ConnectivityUtil.isWifiConnected(mApp) && StorageUtil.isExternalStorageWritable()) {
+			new AsyncHttpClient().get(Constants.config.UPGRADE_URL, new JsonHttpResponseHandler("UTF-8") {
 				@Override
 				public void onSuccess(JSONObject jsonObject) {
 					try {
 						if (mApp.getCurrentVersionCode() < jsonObject.getInt("versionCode")) {
-							Logger.i(TAG, "显示升级对话框");
 							mApkUrl = jsonObject.getString("apkUrl");
 							mVersionName = jsonObject.getString("versionName");
 							showUpgradDialog();
@@ -62,15 +69,28 @@ public class SplashActivity extends BaseActivity {
 						loadMainActivity();
 					}
 				}
+
+				@Override
+				public void onFailure(Throwable e, JSONObject errorResponse) {
+					Logger.e(TAG, "获取升级信息失败");
+					loadMainActivityDelay();
+				}
 			});
 		} else {
-			new Handler().postDelayed(new Runnable() {
-				@Override
-				public void run() {
-					loadMainActivity();
-				}
-			}, 1500);
+			loadMainActivityDelay();
 		}
+	}
+
+	/**
+	 * 延时加载主界面
+	 */
+	private void loadMainActivityDelay() {
+		new Handler().postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				loadMainActivity();
+			}
+		}, 1500);
 	}
 
 	/**
@@ -79,7 +99,52 @@ public class SplashActivity extends BaseActivity {
 	 * @param versionName
 	 */
 	public void showUpgradDialog() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(getString(R.string.current_version_tips) + mApp.getCurrentVersionName() + "\n");
+		sb.append(getString(R.string.new_version_tips) + mVersionName + "\n\n");
+		sb.append(getString(R.string.whether_upgrade_tips));
+		final ConfirmDialog confirmDialog = new ConfirmDialog(SplashActivity.this, R.string.find_new_version, sb.toString(), R.string.upgrade_later, R.string.upgrade_now);
+		confirmDialog.setBtnCallback(new BtnCallback() {
+			@Override
+			public void onClickRight() {
+				mPDialog = new PDialog(SplashActivity.this);
+				mPDialog.show();
+				upgrade();
+			}
 
+			@Override
+			public void onClickLeft() {
+				loadMainActivity();
+			}
+		});
+		confirmDialog.show();
+	}
+
+	private void upgrade() {
+		File apkFile = new File(StorageUtil.getDownloadDir(), Constants.file.NEW_APK_NAME);
+		apkFile.deleteOnExit();
+		new AsyncHttpClient().get(mApkUrl, new FileAsyncHttpResponseHandler(apkFile) {
+			@Override
+			public void onProgress(int bytesWritten, int totalSize) {
+				mPDialog.setMax(totalSize);
+				mPDialog.setProgress(bytesWritten);
+			}
+
+			@Override
+			public void onSuccess(File file) {
+				mPDialog.dismiss();
+				install(file);
+			}
+
+			@Override
+			public void onFailure(Throwable e, File response) {
+				mPDialog.dismiss();
+				response.deleteOnExit();
+				Logger.e(TAG, "下载apk文件出错：" + e.getMessage());
+				ToastUtil.makeText(mApp, R.string.download_apk_error);
+				loadMainActivity();
+			}
+		});
 	}
 
 	/**
@@ -100,5 +165,11 @@ public class SplashActivity extends BaseActivity {
 		startActivity(mApp.getInstallApkIntent(apkFile));
 		// 销毁当前应用
 		finish();
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+
 	}
 }

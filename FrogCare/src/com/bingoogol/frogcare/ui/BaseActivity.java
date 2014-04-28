@@ -2,10 +2,11 @@ package com.bingoogol.frogcare.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View.OnClickListener;
 
 import com.bingoogol.frogcare.App;
 
-public abstract class BaseActivity extends Activity {
+public abstract class BaseActivity extends Activity implements OnClickListener {
 	protected App mApp;
 
 	@Override

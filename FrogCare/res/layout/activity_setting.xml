@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:frogcare="http://schemas.android.com/apk/res/com.bingoogol.frogcare"
     style="@style/match_match"
     android:background="@color/bg_root_black"
     android:orientation="vertical" >
@@ -11,36 +12,35 @@
         android:orientation="horizontal" >
 
         <Button
+            android:id="@+id/btn_setting_back"
             android:layout_width="@dimen/btn_title_size"
             android:layout_height="@dimen/btn_title_size"
-            android:background="@drawable/title_logo" />
+            android:background="@drawable/btn_back_selector" />
 
         <TextView
             style="@style/wrap_wrap"
             android:gravity="center_vertical"
-            android:text="@string/app_name"
+            android:text="@string/setting_center"
             android:textSize="@dimen/textSize_large" />
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
         style="@style/match_match"
         android:layout_margin="@dimen/margin_edge"
         android:background="@color/bg_black"
-        android:gravity="center"
-        android:orientation="vertical" >
+        android:scrollbars="none" >
 
-        <GridView
-            android:id="@+id/gv_main_function"
+        <LinearLayout
             style="@style/match_wrap"
-            android:background="@android:color/transparent"
-            android:gravity="center"
-            android:horizontalSpacing="@dimen/gv_main_function_horizontalSpacing"
-            android:listSelector="@android:color/transparent"
-            android:numColumns="3"
-            android:padding="@dimen/gv_main_function_padding"
-            android:stretchMode="columnWidth"
-            android:verticalSpacing="@dimen/gv_main_function_verticalSpacing" >
-        </GridView>
-    </LinearLayout>
+            android:orientation="vertical" >
+
+            <com.bingoogol.frogcare.ui.view.SettingView
+                android:id="@+id/sv_setting_autoupdate"
+                style="@style/match_wrap"
+                frogcare:content_off="@string/autoupdate_closed"
+                frogcare:content_on="@string/autoupdate_opened"
+                frogcare:title="@string/autoupdate" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

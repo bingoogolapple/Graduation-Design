@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/wrap_wrap"
+    android:background="@drawable/bg_item_main_selector"
+    android:orientation="vertical"
+    android:padding="@dimen/item_main_root_padding" >
+
+    <TextView
+        android:id="@+id/tv_item_main_content"
+        style="@style/wrap_wrap"
+        android:layout_gravity="center"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:text="Title"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/textSize_middle" />
+
+</LinearLayout>
