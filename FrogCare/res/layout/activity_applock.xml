@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/match_match"
+    android:background="@color/bg_root_black"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        style="@style/match_wrap"
+        android:background="@color/bg_title_top"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <include layout="@layout/view_back" />
+
+        <TextView
+            style="@style/wrap_wrap"
+            android:gravity="center_vertical"
+            android:text="@string/applock"
+            android:textSize="@dimen/textSize_large" />
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_applock"
+        style="@style/match_match" />
+
+</LinearLayout>

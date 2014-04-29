@@ -50,7 +50,7 @@ public class SplashActivity extends BaseActivity {
 	}
 
 	private void checkVersion() {
-		if (SpUtil.getBoolean(Constants.spkey.AUTO_UPGRADE, true) && ConnectivityUtil.isWifiConnected(mApp) && StorageUtil.isExternalStorageWritable()) {
+		if (SpUtil.getBoolean(Constants.spkey.AUTO_UPGRADE, false) && ConnectivityUtil.isWifiConnected(mApp) && StorageUtil.isExternalStorageWritable()) {
 			new AsyncHttpClient().get(Constants.config.UPGRADE_URL, new JsonHttpResponseHandler("UTF-8") {
 				@Override
 				public void onSuccess(JSONObject jsonObject) {
@@ -126,8 +126,7 @@ public class SplashActivity extends BaseActivity {
 		new AsyncHttpClient().get(mApkUrl, new FileAsyncHttpResponseHandler(apkFile) {
 			@Override
 			public void onProgress(int bytesWritten, int totalSize) {
-				mPDialog.setMax(totalSize);
-				mPDialog.setProgress(bytesWritten);
+				mPDialog.setProgress(totalSize, bytesWritten, Math.round(((float) bytesWritten / totalSize) * 100) + "%");
 			}
 
 			@Override

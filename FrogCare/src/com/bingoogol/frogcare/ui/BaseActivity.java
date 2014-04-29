@@ -2,9 +2,11 @@ package com.bingoogol.frogcare.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.bingoogol.frogcare.App;
+import com.bingoogol.frogcare.R;
 
 public abstract class BaseActivity extends Activity implements OnClickListener {
 	protected App mApp;
@@ -40,5 +42,10 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 	protected void onDestroy() {
 		mApp.removeActivity(this);
 		super.onDestroy();
+	}
+
+	public void onBack(View v) {
+		overridePendingTransition(R.anim.tran_pre_in, R.anim.tran_pre_out);
+		finish();
 	}
 }

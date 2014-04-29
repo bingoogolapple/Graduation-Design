@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/btn_title_size"
+    android:layout_height="@dimen/btn_title_size"
+    android:background="@drawable/btn_back_selector"
+    android:onClick="onBack" />

@@ -41,5 +41,7 @@ public final class Constants {
 
 	public static final class spkey {
 		public static final String AUTO_UPGRADE = "autoupgrade";
+		public static final String APPLOCK_PWD = "applockpwd";
+		public static final String APPLOCK = "applock";
 	}
 }

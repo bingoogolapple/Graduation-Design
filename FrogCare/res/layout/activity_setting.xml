@@ -11,11 +11,7 @@
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
-        <Button
-            android:id="@+id/btn_setting_back"
-            android:layout_width="@dimen/btn_title_size"
-            android:layout_height="@dimen/btn_title_size"
-            android:background="@drawable/btn_back_selector" />
+        <include layout="@layout/view_back" />
 
         <TextView
             style="@style/wrap_wrap"
@@ -37,9 +33,18 @@
             <com.bingoogol.frogcare.ui.view.SettingView
                 android:id="@+id/sv_setting_autoupdate"
                 style="@style/match_wrap"
+                android:layout_marginBottom="@dimen/view_setting_marginBottom"
                 frogcare:content_off="@string/autoupdate_closed"
                 frogcare:content_on="@string/autoupdate_opened"
                 frogcare:title="@string/autoupdate" />
+
+            <com.bingoogol.frogcare.ui.view.SettingView
+                android:id="@+id/sv_setting_applock"
+                style="@style/match_wrap"
+                android:layout_marginBottom="@dimen/view_setting_marginBottom"
+                frogcare:content_off="@string/applock_closed"
+                frogcare:content_on="@string/applock_opened"
+                frogcare:title="@string/applock" />
         </LinearLayout>
     </ScrollView>
 

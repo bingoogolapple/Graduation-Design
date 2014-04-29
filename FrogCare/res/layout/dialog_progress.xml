@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:frogcare="http://schemas.android.com/apk/res-auto"
     style="@style/wrap_wrap"
     android:orientation="vertical" >
 
-    <ProgressBar
-        android:id="@+id/pb_dialog_progress"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="@dimen/dialog_root_width"
-        android:layout_height="20dp"
-        android:background="@color/bg_progressbar_function_gray"
-        android:max="100"
-        android:progress="50"
-        android:progressDrawable="@drawable/progressbar_blue_layer" />
+    <com.bingoogol.frogcare.ui.view.ProgressWheel
+        android:id="@+id/pw_dialog_progressbar"
+        android:layout_width="@dimen/pw_dialog_progressbar_size"
+        android:layout_height="@dimen/pw_dialog_progressbar_size"
+        frogcare:barColor="@color/bg_progressbar_blue"
+        frogcare:barWidth="@dimen/pw_dialog_progressbar_barWidth"
+        frogcare:rimColor="@color/bg_progressbar_function_gray"
+        frogcare:rimWidth="@dimen/pw_dialog_progressbar_rimWidth"
+        frogcare:spinSpeed="@dimen/pw_dialog_progressbar_spinSpeed"
+        frogcare:text="50%"
+        frogcare:textColor="@android:color/white"
+        frogcare:textSize="@dimen/textSize_large" />
 
 </LinearLayout>

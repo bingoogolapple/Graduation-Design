@@ -13,6 +13,10 @@
     <dimen name="dialog_root_width">230dp</dimen>
     <dimen name="dialog_padding">10dp</dimen>
     <dimen name="dialog_margin">5dp</dimen>
+    <dimen name="pw_dialog_progressbar_size">150dp</dimen>
+    <dimen name="pw_dialog_progressbar_barWidth">10dp</dimen>
+    <dimen name="pw_dialog_progressbar_rimWidth">5dp</dimen>    <dimen name="pw_dialog_progressbar_spinSpeed">1dp</dimen>
+
     <!-- dialog END -->
     <!-- 主页 START -->
     <dimen name="btn_title_size">50dp</dimen>
@@ -24,6 +28,7 @@
     <!-- 设置中心 START -->
     <dimen name="view_setting_margin">5dp</dimen>
     <dimen name="view_setting_padding">5dp</dimen>
+    <dimen name="view_setting_marginBottom">2dp</dimen>
 
     <!-- 设置中心 END -->
 

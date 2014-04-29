@@ -2,6 +2,9 @@ package com.bingoogol.frogcare.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -11,12 +14,20 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import com.bingoogol.frogcare.R;
+import com.bingoogol.frogcare.ui.view.BtnCallback;
+import com.bingoogol.frogcare.ui.view.PromptDialog;
+import com.bingoogol.frogcare.util.Constants;
+import com.bingoogol.frogcare.util.Logger;
+import com.bingoogol.frogcare.util.SpUtil;
+import com.bingoogol.frogcare.util.ToastUtil;
 
 public class MainActivity extends BaseActivity {
 	private static final String TAG = "MainActivity";
 	private GridView gv_main_function;
 	private String[] functionNames;
 	private static TextView tv_item_main_content;
+	private long[] mClickMenuHits = new long[3];
+	private OpreateType mOpreateType = OpreateType.APP_LOCK;
 
 	@Override
 	protected void initView() {
@@ -37,7 +48,6 @@ public class MainActivity extends BaseActivity {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				Intent intent = null;
 				switch (position) {
 				case 0:
 					// 手机防盗
@@ -54,7 +64,9 @@ public class MainActivity extends BaseActivity {
 					// 进程管理
 					break;
 				case 4:
-					// 流量统计
+					// 隐私保护
+					mOpreateType = OpreateType.APP_LOCK;
+					auth();
 					break;
 				case 5:
 					// 手机杀毒
@@ -64,14 +76,20 @@ public class MainActivity extends BaseActivity {
 					break;
 				case 7:
 					// 高级工具
-					// intent = new Intent(mApp, ToolActivity_.class);
-					// startActivity(intent);
 					break;
 				case 8:
 					// 设置中心
-					intent = new Intent(mApp, SettingActivity.class);
-					startActivity(intent);
+					mOpreateType = OpreateType.SETTING_CENTER;
+					auth();
 					break;
+				}
+			}
+
+			private void auth() {
+				if (TextUtils.isEmpty(SpUtil.getString(Constants.spkey.APPLOCK_PWD, ""))) {
+					showChangeAppLockPasswordDialog();
+				} else {
+					showAuthAppLockPasswordDialog();
 				}
 			}
 		});
@@ -80,6 +98,101 @@ public class MainActivity extends BaseActivity {
 	@Override
 	public void onBackPressed() {
 		mApp.exitWithDoubleClick();
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		DisplayMetrics dm = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(dm);
+		if (KeyEvent.KEYCODE_MENU == keyCode) {
+			System.arraycopy(mClickMenuHits, 1, mClickMenuHits, 0, mClickMenuHits.length - 1);
+			mClickMenuHits[mClickMenuHits.length - 1] = System.currentTimeMillis();
+			if (mClickMenuHits[mClickMenuHits.length - 1] - mClickMenuHits[0] <= 1500) {
+				if (TextUtils.isEmpty(SpUtil.getString(Constants.spkey.APPLOCK_PWD, ""))) {
+					showChangeAppLockPasswordDialog();
+				} else {
+					showEnterOldAppLockPasswordDialog();
+				}
+			}
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+
+	private void showAuthAppLockPasswordDialog() {
+		final PromptDialog pd = new PromptDialog(MainActivity.this, R.string.auth_applockpwd, R.string.please_input_applockpwd, R.string.ok, R.string.cancel, true);
+		pd.setBtnCallback(new BtnCallback() {
+
+			@Override
+			public void onClickRight() {
+				String appLockPwd = pd.getContent();
+				if (appLockPwd.equals(SpUtil.getString(Constants.spkey.APPLOCK_PWD, ""))) {
+					pd.dismiss();
+					switch (mOpreateType) {
+					case SETTING_CENTER:
+						startActivity(new Intent(mApp, SettingActivity.class));
+						overridePendingTransition(R.anim.tran_next_in, R.anim.tran_next_out);
+						break;
+					case APP_LOCK:
+						startActivity(new Intent(mApp, ApplockActivity.class));
+						overridePendingTransition(R.anim.tran_next_in, R.anim.tran_next_out);
+						break;
+					}
+				} else {
+					ToastUtil.makeText(mApp, R.string.pwd_error_tips);
+				}
+			}
+
+			@Override
+			public void onClickLeft() {
+			}
+		});
+		pd.show();
+	}
+
+	private void showEnterOldAppLockPasswordDialog() {
+		final PromptDialog pd = new PromptDialog(MainActivity.this, R.string.auth_applockpwd, R.string.please_input_oldapplockpwd, R.string.ok, R.string.cancel, true);
+		pd.setBtnCallback(new BtnCallback() {
+
+			@Override
+			public void onClickRight() {
+				String appLockPwd = pd.getContent();
+				if (appLockPwd.equals(SpUtil.getString(Constants.spkey.APPLOCK_PWD, ""))) {
+					pd.dismiss();
+					showChangeAppLockPasswordDialog();
+				} else {
+					ToastUtil.makeText(mApp, R.string.pwd_error_tips);
+				}
+			}
+
+			@Override
+			public void onClickLeft() {
+			}
+		});
+		pd.show();
+	}
+
+	private void showChangeAppLockPasswordDialog() {
+		final PromptDialog pd = new PromptDialog(MainActivity.this, R.string.change_applockpwd, R.string.please_input_newapplockpwd, R.string.update, R.string.cancel, true);
+		pd.setBtnCallback(new BtnCallback() {
+
+			@Override
+			public void onClickRight() {
+				String appLockPwd = pd.getContent();
+				if (appLockPwd.length() == 0) {
+					pd.shake();
+					ToastUtil.makeText(mApp, R.string.pwd_not_allow_null_tips);
+				} else {
+					Logger.d(TAG, "修改程序锁密码成功");
+					pd.dismiss();
+					SpUtil.putString(Constants.spkey.APPLOCK_PWD, appLockPwd);
+				}
+			}
+
+			@Override
+			public void onClickLeft() {
+			}
+		});
+		pd.show();
 	}
 
 	private class FunctionAdapter extends BaseAdapter {
@@ -113,5 +226,9 @@ public class MainActivity extends BaseActivity {
 	@Override
 	public void onClick(View v) {
 
+	}
+
+	protected enum OpreateType {
+		APP_LOCK, SETTING_CENTER
 	}
 }
