@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/match_wrap"
-    android:padding="@dimen/view_setting_padding"
-    android:background="@drawable/bg_setting_view_selector" >
+    android:background="@drawable/bg_setting_view_selector"
+    android:padding="@dimen/size_normal" >
 
     <TextView
         android:id="@+id/tv_view_setting_title"
@@ -15,7 +15,7 @@
         android:id="@+id/tv_view_setting_content"
         style="@style/wrap_wrap"
         android:layout_below="@id/tv_view_setting_title"
-        android:layout_marginTop="@dimen/view_setting_margin"
+        android:layout_marginTop="@dimen/size_normal"
         android:text="状态"
         android:textColor="@color/text_gray"
         android:textSize="@dimen/textSize_small" />

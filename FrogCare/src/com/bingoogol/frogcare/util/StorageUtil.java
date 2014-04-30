@@ -35,6 +35,18 @@ public class StorageUtil {
 		}
 		return downloadDir;
 	}
+	/**
+	 * 获取手机重启后拍摄照片的存储目录
+	 * 
+	 * @return
+	 */
+	public static File getTheftDir() {
+		File downloadDir = new File(Environment.getExternalStorageDirectory() + File.separator + Constants.file.DIR_THEFT);
+		if (!downloadDir.exists()) {
+			downloadDir.mkdirs();
+		}
+		return downloadDir;
+	}
 
 	/**
 	 * 获取当前app错误日志文件存储目录

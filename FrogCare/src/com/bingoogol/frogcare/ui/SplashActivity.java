@@ -46,6 +46,7 @@ public class SplashActivity extends BaseActivity {
 	@Override
 	protected void afterViews(Bundle savedInstanceState) {
 		((TextView) findViewById(R.id.tv_splash_versionName)).setText(mApp.getCurrentVersionName());
+		
 		checkVersion();
 	}
 

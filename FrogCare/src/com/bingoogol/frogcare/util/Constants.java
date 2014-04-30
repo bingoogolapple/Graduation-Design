@@ -23,7 +23,8 @@ public final class Constants {
 		public static final String NEW_APK_NAME = "NewFrogCare.apk";
 		public static final String DIR_ROOT = APP_NAME;
 		public static final String DIR_DOWNLOAD = DIR_ROOT + File.separator + "download";
-		public static final String DIR_FEEDBACK = DIR_ROOT + File.separator + "feedback";;
+		public static final String DIR_FEEDBACK = DIR_ROOT + File.separator + "feedback";
+		public static final String DIR_THEFT = DIR_ROOT + File.separator + "theft";
 	}
 
 	public static final class config {

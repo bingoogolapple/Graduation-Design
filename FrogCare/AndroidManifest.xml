@@ -64,13 +64,23 @@
         <activity
             android:name="com.bingoogol.frogcare.ui.ApplockActivity"
             android:screenOrientation="portrait" />
+        <!-- android:excludeFromRecents="true" 程序正在运行或者退出，在长按HOME键的最近程序列表中不显示该应用以达到隐藏进程的目的 -->
         <activity
             android:name="com.bingoogol.frogcare.ui.ApplockAuthActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
 
         <service
             android:name="com.bingoogol.frogcare.service.WatchDogService"
-            android:label="@string/applock" android:description="@string/applock_description"/>
+            android:description="@string/applock_description"
+            android:label="@string/applock" />
+
+        <receiver android:name=".receiver.BootCompleteReceiver" >
+            <intent-filter android:priority="1000" >
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

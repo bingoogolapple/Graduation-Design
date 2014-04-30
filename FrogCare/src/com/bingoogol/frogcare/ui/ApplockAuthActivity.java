@@ -24,7 +24,7 @@ public class ApplockAuthActivity extends BaseActivity {
 	private static final String TAG = "ApplockAuthActivity";
 	private ImageView iv_applock_auth_icon;
 	private TextView tv_applock_auth_name;
-	private EditText et_applock_auth_password;
+	private EditText et_applock_auth_pwd;
 	private MyConn mMyConn;
 	private WatchDogCallback mWatchDogCallback;
 	private String mPackageName;
@@ -34,7 +34,7 @@ public class ApplockAuthActivity extends BaseActivity {
 		setContentView(R.layout.activity_applock_auth);
 		iv_applock_auth_icon = (ImageView) findViewById(R.id.iv_applock_auth_icon);
 		tv_applock_auth_name = (TextView) findViewById(R.id.tv_applock_auth_name);
-		et_applock_auth_password = (EditText) findViewById(R.id.et_applock_auth_password);
+		et_applock_auth_pwd = (EditText) findViewById(R.id.et_applock_auth_pwd);
 	}
 
 	@Override
@@ -59,7 +59,7 @@ public class ApplockAuthActivity extends BaseActivity {
 	@Override
 	public void onClick(View v) {
 		if (v.getId() == R.id.btn_applock_auth_ok) {
-			String password = et_applock_auth_password.getText().toString().trim();
+			String password = et_applock_auth_pwd.getText().toString().trim();
 			if (SpUtil.getString(Constants.spkey.APPLOCK_PWD, "").equals(password)) {
 				finish();
 				mWatchDogCallback.addTempStopProtectPackageName(mPackageName);

@@ -42,5 +42,7 @@ list条目数量背景 3F3E42
     <color name="btn_gray_pressed">#28282B</color>
     <color name="bg_toast">#0B0A0C</color>
     <color name="bg_setting_view_pressed">#234567</color>
+    <color name="bg_tab">#303537</color>
+    <color name="bg_tab_pressed">#282A2B</color>
 
 </resources>

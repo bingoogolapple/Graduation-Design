@@ -22,7 +22,7 @@
 
     <ScrollView
         style="@style/match_match"
-        android:layout_margin="@dimen/margin_edge"
+        android:layout_margin="@dimen/size_normal"
         android:background="@color/bg_black"
         android:scrollbars="none" >
 
@@ -33,7 +33,7 @@
             <com.bingoogol.frogcare.ui.view.SettingView
                 android:id="@+id/sv_setting_autoupdate"
                 style="@style/match_wrap"
-                android:layout_marginBottom="@dimen/view_setting_marginBottom"
+                android:layout_marginBottom="@dimen/size_divider"
                 frogcare:content_off="@string/autoupdate_closed"
                 frogcare:content_on="@string/autoupdate_opened"
                 frogcare:title="@string/autoupdate" />
@@ -41,7 +41,7 @@
             <com.bingoogol.frogcare.ui.view.SettingView
                 android:id="@+id/sv_setting_applock"
                 style="@style/match_wrap"
-                android:layout_marginBottom="@dimen/view_setting_marginBottom"
+                android:layout_marginBottom="@dimen/size_divider"
                 frogcare:content_off="@string/applock_closed"
                 frogcare:content_on="@string/applock_opened"
                 frogcare:title="@string/applock" />

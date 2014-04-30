@@ -22,7 +22,7 @@
         android:textColor="@color/white_light" />
 
     <EditText
-        android:id="@+id/et_applock_auth_password"
+        android:id="@+id/et_applock_auth_pwd"
         style="@style/match_wrap"
         android:hint="请输入密码"
         android:inputType="textPassword" >

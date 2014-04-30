@@ -19,8 +19,64 @@
             android:textSize="@dimen/textSize_large" />
     </LinearLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vp_applock"
-        style="@style/match_match" />
+    <FrameLayout style="@style/match_auto" >
+
+        <LinearLayout
+            android:id="@+id/ll_unlock"
+            style="@style/match_match"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_unlock_count"
+                style="@style/list_title"
+                android:text="@string/unlock_count" />
+
+            <ListView
+                android:id="@+id/lv_unlock"
+                style="@style/match_match"
+                android:dividerHeight="2dp"
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="@color/divider"
+                android:listSelector="@android:color/transparent" >
+            </ListView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_locked"
+            style="@style/match_match"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/tv_locked_count"
+                style="@style/list_title"
+                android:text="@string/locked_count" />
+
+            <ListView
+                android:id="@+id/lv_locked"
+                style="@style/match_match"
+                android:dividerHeight="2dp"
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="@color/divider"
+                android:listSelector="@android:color/transparent" >
+            </ListView>
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        style="@style/match_wrap"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_unlock_tab"
+            style="@style/applock_tab"
+            android:text="@string/unlock" />
+
+        <TextView
+            android:id="@+id/tv_locked_tab"
+            style="@style/applock_tab"
+            android:text="@string/locked" />
+    </LinearLayout>
 
 </LinearLayout>

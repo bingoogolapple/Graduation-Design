@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/wrap_wrap"
+    android:background="@drawable/bg_dialog"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="@dimen/dialog_padding" >
+
+    <ImageView
+        android:id="@+id/iv_clpd_progress"
+        style="@style/wrap_wrap"
+        android:src="@anim/loding" />
+
+</LinearLayout>

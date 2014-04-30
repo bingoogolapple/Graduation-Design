@@ -2,34 +2,37 @@
 <resources>
 
     <!-- 公共的 START -->
-    <dimen name="margin_edge">5dp</dimen>
-    <!-- 公共的 END -->
-    <!-- 文字 START -->
+    <dimen name="size_icon_normal">50dp</dimen>
+    <dimen name="size_icon_large">100dp</dimen>
+    <dimen name="size_normal">5dp</dimen>
+    <dimen name="size_large">10dp</dimen>
+    <dimen name="size_divider">2dp</dimen>
     <dimen name="textSize_large">20sp</dimen>
+    <dimen name="textSize_large_large">40sp</dimen>
     <dimen name="textSize_middle">18sp</dimen>
     <dimen name="textSize_small">15sp</dimen>
-    <!-- 文字 END -->
+    <!-- 公共的 END -->
     <!-- dialog START -->
     <dimen name="dialog_root_width">230dp</dimen>
     <dimen name="dialog_padding">10dp</dimen>
-    <dimen name="dialog_margin">5dp</dimen>
     <dimen name="pw_dialog_progressbar_size">150dp</dimen>
     <dimen name="pw_dialog_progressbar_barWidth">10dp</dimen>
-    <dimen name="pw_dialog_progressbar_rimWidth">5dp</dimen>    <dimen name="pw_dialog_progressbar_spinSpeed">1dp</dimen>
+    <dimen name="pw_dialog_progressbar_rimWidth">5dp</dimen>
+    <dimen name="pw_dialog_progressbar_spinSpeed">1dp</dimen>
 
     <!-- dialog END -->
     <!-- 主页 START -->
-    <dimen name="btn_title_size">50dp</dimen>
-    <dimen name="gv_main_function_padding">10dp</dimen>
     <dimen name="gv_main_function_horizontalSpacing">10dp</dimen>
     <dimen name="gv_main_function_verticalSpacing">50dp</dimen>
     <dimen name="item_main_root_padding">28dp</dimen>
     <!-- 主页 END -->
     <!-- 设置中心 START -->
-    <dimen name="view_setting_margin">5dp</dimen>
-    <dimen name="view_setting_padding">5dp</dimen>
-    <dimen name="view_setting_marginBottom">2dp</dimen>
+
 
     <!-- 设置中心 END -->
+
+    <dimen name="applock_auth_ok_size">120dp</dimen>
+    <dimen name="applock_auth_pwd_width">240dp</dimen>
+    <dimen name="applock_auth_ok_marginTop">50dp</dimen>
 
 </resources>

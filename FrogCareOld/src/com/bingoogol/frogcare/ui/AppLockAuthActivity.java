@@ -39,7 +39,7 @@ public class AppLockAuthActivity extends Activity {
 	@ViewById
 	protected TextView tv_applock_auth_name;
 	@ViewById
-	protected EditText et_applock_auth_password;
+	protected EditText et_applock_auth_pwd;
 	private MyConn mMyConn;
 	private WatchDogCallback mWatchDogCallback;
 	private String mPackageName;
@@ -60,7 +60,7 @@ public class AppLockAuthActivity extends Activity {
 
 	@Click
 	public void btn_applock_auth_ok() {
-		String password = et_applock_auth_password.getText().toString().trim();
+		String password = et_applock_auth_pwd.getText().toString().trim();
 		if (mSp.appLockPwd().get().equals(password)) {
 			finish();
 			mWatchDogCallback.addTempStopProtectPackageName(mPackageName);

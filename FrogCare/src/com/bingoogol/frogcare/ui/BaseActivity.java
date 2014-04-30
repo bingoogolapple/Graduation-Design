@@ -1,14 +1,14 @@
 package com.bingoogol.frogcare.ui;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.bingoogol.frogcare.App;
 import com.bingoogol.frogcare.R;
 
-public abstract class BaseActivity extends Activity implements OnClickListener {
+public abstract class BaseActivity extends FragmentActivity implements OnClickListener {
 	protected App mApp;
 
 	@Override

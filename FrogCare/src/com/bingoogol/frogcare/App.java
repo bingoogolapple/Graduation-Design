@@ -21,6 +21,7 @@ import android.os.Build;
 import android.os.Process;
 
 import com.bingoogol.frogcare.util.Constants;
+import com.bingoogol.frogcare.util.DateUtil;
 import com.bingoogol.frogcare.util.Logger;
 import com.bingoogol.frogcare.util.SpUtil;
 import com.bingoogol.frogcare.util.StorageUtil;
@@ -98,7 +99,7 @@ public class App extends Application {
 		public void uncaughtException(Thread thread, Throwable ex) {
 			FileWriter fw = null;
 			try {
-				File file = new File(StorageUtil.getFeedbackDir(), new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + ".log");
+				File file = new File(StorageUtil.getFeedbackDir(), DateUtil.dateToDayString(new Date()) + ".log");
 				boolean flag = file.exists();
 				// 这行执行完，file就存在了，所以得在这之前判断文件是否已经存在
 				fw = new FileWriter(file, true);

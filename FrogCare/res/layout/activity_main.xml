@@ -11,8 +11,8 @@
         android:orientation="horizontal" >
 
         <Button
-            android:layout_width="@dimen/btn_title_size"
-            android:layout_height="@dimen/btn_title_size"
+            android:layout_width="@dimen/size_icon_normal"
+            android:layout_height="@dimen/size_icon_normal"
             android:background="@drawable/title_logo" />
 
         <TextView
@@ -24,7 +24,7 @@
 
     <LinearLayout
         style="@style/match_match"
-        android:layout_margin="@dimen/margin_edge"
+        android:layout_margin="@dimen/size_normal"
         android:background="@color/bg_black"
         android:gravity="center"
         android:orientation="vertical" >
@@ -37,7 +37,7 @@
             android:horizontalSpacing="@dimen/gv_main_function_horizontalSpacing"
             android:listSelector="@android:color/transparent"
             android:numColumns="3"
-            android:padding="@dimen/gv_main_function_padding"
+            android:padding="@dimen/size_large"
             android:stretchMode="columnWidth"
             android:verticalSpacing="@dimen/gv_main_function_verticalSpacing" >
         </GridView>

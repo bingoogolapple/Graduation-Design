@@ -85,14 +85,15 @@ public class MainActivity extends BaseActivity {
 				}
 			}
 
-			private void auth() {
-				if (TextUtils.isEmpty(SpUtil.getString(Constants.spkey.APPLOCK_PWD, ""))) {
-					showChangeAppLockPasswordDialog();
-				} else {
-					showAuthAppLockPasswordDialog();
-				}
-			}
 		});
+	}
+
+	private void auth() {
+		if (TextUtils.isEmpty(SpUtil.getString(Constants.spkey.APPLOCK_PWD, ""))) {
+			showChangeAppLockPasswordDialog();
+		} else {
+			showAuthAppLockPasswordDialog();
+		}
 	}
 
 	@Override

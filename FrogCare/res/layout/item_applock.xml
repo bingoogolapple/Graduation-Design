@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/match_wrap"
+    android:padding="@dimen/size_normal"
+    android:background="@drawable/bg_setting_view_selector" >
+
+    <ImageView
+        android:id="@+id/iv_item_applock_icon"
+        android:layout_width="@dimen/size_icon_normal"
+        android:layout_height="@dimen/size_icon_normal"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tv_item_applock_name"
+        android:layout_width="0dp"
+        android:layout_marginLeft="@dimen/size_normal"
+        android:layout_height="@dimen/size_icon_normal"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxEms="3"
+        android:singleLine="true"
+        android:text="程序名称"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/textSize_small" />
+
+    <ImageView
+        android:id="@+id/iv_item_applock_status"
+        android:layout_width="@dimen/size_icon_normal"
+        android:layout_height="@dimen/size_icon_normal"
+        android:src="@drawable/locked" />
+
+</LinearLayout>
