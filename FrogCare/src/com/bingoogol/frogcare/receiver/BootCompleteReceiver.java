@@ -12,7 +12,6 @@ import android.graphics.PixelFormat;
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
 import android.os.Handler;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
@@ -72,36 +71,6 @@ public class BootCompleteReceiver extends BroadcastReceiver {
 		takePicture();
 	}
 
-	private void takePicture() {
-		new Handler().postDelayed(new Runnable() {
-			@Override
-			public void run() {
-				camera.takePicture(null, null, new Camera.PictureCallback() {
-					@Override
-					public void onPictureTaken(byte[] data, Camera camera) {
-						File imgFile = new File(StorageUtil.getTheftDir(), DateUtil.dateToSecondsString(new Date()) + ".jpg");
-						FileOutputStream fos = null;
-						try {
-							fos = new FileOutputStream(imgFile);
-							fos.write(data);
-							fos.flush();
-							Log.i("bingo", "拍照成功 文件路径：" + imgFile.getAbsolutePath());
-						} catch (Exception e) {
-							Log.e("bingo", "拍照失败" + e.getMessage());
-							imgFile.deleteOnExit();
-							e.printStackTrace();
-						} finally {
-							StreamUtil.close(fos, "关闭手机重启完毕时拍照文件输出流出错");
-							wm.removeView(surfaceView);
-						}
-
-					}
-				});
-			}
-		}, 2000);
-
-	}
-
 	private void addTakePictureView(Context context) {
 		surfaceView = new SurfaceView(context);
 		surfaceView.getHolder().addCallback(cameraPreviewHolderCallback);
@@ -116,5 +85,34 @@ public class BootCompleteReceiver extends BroadcastReceiver {
 		params.type = WindowManager.LayoutParams.TYPE_PRIORITY_PHONE;
 		wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
 		wm.addView(surfaceView, params);
+	}
+
+	private void takePicture() {
+		new Handler().postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				camera.takePicture(null, null, new Camera.PictureCallback() {
+					@Override
+					public void onPictureTaken(byte[] data, Camera camera) {
+						File imgFile = new File(StorageUtil.getTheftDir(), DateUtil.dateToSecondsString(new Date()) + ".jpg");
+						FileOutputStream fos = null;
+						try {
+							fos = new FileOutputStream(imgFile);
+							fos.write(data);
+							fos.flush();
+							Logger.i(TAG, "拍照成功 文件路径：" + imgFile.getAbsolutePath());
+						} catch (Exception e) {
+							Logger.e(TAG, "拍照失败" + e.getMessage());
+							imgFile.deleteOnExit();
+							e.printStackTrace();
+						} finally {
+							StreamUtil.close(fos, "关闭手机重启完毕时拍照文件输出流出错");
+							wm.removeView(surfaceView);
+						}
+					}
+
+				});
+			}
+		}, 2000);
 	}
 }

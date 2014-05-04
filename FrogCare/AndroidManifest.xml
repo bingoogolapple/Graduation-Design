@@ -35,6 +35,10 @@
     <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
         android:name="com.bingoogol.frogcare.App"
@@ -76,7 +80,7 @@
             android:description="@string/applock_description"
             android:label="@string/applock" />
 
-        <receiver android:name=".receiver.BootCompleteReceiver" >
+        <receiver android:name="com.bingoogol.frogcare.receiver.BootCompleteReceiver" >
             <intent-filter android:priority="1000" >
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
