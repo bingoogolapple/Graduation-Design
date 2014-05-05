@@ -70,7 +70,6 @@ public class SplashActivity extends BaseActivity {
 						loadMainActivity();
 					}
 				}
-
 				@Override
 				public void onFailure(Throwable e, JSONObject errorResponse) {
 					Logger.e(TAG, "获取升级信息失败");
