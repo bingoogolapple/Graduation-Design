@@ -1,0 +1,98 @@
+.layout_left,.layout_right{
+scrollbar-shadow-color:#000;
+scrollbar-highlight-color:#000;
+scrollbar-3dlight-color:#353535;
+scrollbar-darkshadow-color:#353535;
+scrollbar-arrow-color:#000;
+scrollbar-face-color:#d7d7d7;
+scrollbar-track-color:#353535;
+overflow-y:scroll;
+}
+
+* html,* html body{background-image:url(about:blank);_background-attachment:fixed} 
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6,pre, form, fieldset, input, textarea, p, blockquote, th, td {padding: 0; margin:0;}
+body{padding:0 0 30px 0;background:url("../images/bodybg.gif") repeat;_background-attachment: fixed;/* prevent screen flash in IE6 确保滚动条滚动时，元素不闪动*/font-size:12px;font-family:'宋体';color:#252525;word-wrap:break-word;word-break:break-all;}
+fieldset, img {border:0;vertical-align:middle;}
+table {border-collapse: collapse; border-spacing: 0;}
+ol, ul {list-style: none;}
+address, caption, cite,em, strong, th {font-weight: normal; font-style: normal;}
+th,td {text-align: left;}
+i,b,strong,em{font-style:normal;}
+input,select{vertical-align:middle;}
+
+a{color:#0e53b0;text-decoration:none;}
+a:hover{color:red;text-decoration:underline;}
+a:visited{text-decoration:none;}
+
+/*################字体样式######################*/
+.red{color:#ff3000;}
+.blue{color:#ff3000;}
+.green{color:#257800;}
+.gray{color:#666;}
+.yellow{color:#e0ae00}
+.black{color:#252525;}
+.white{color:white;}
+.bold{font-weight:bold;}
+.normal{font-weight:normal;}
+.f24{font-size:24px;}
+.f22{font-size:22px;}
+.f20{font-size:20px;}
+.f18{font-size:18px;}
+.f16{font-size:16px;}
+.f14{font-size:14px;}
+.f13{font-size:13px;}
+.f12{font-size:12px;}
+.f11{font-size:11px;}
+.f10{font-size:10px;}
+.f9{font-size:9px;}
+.f8{font-size:8px;}
+.tahoma{font-family:"Tahoma";}
+.song{font-family:"宋体";}
+.heiti{font-family:"黑体";}
+.yahei{font-family:"微软雅黑";}
+.verdana{font-family:"Verdana";}
+.a_left{text-align:left;}
+.a_right{text-align:right;}
+.a_center{text-align:center;}
+.block{display:block;}
+.float_left{float:left;}
+.float_right{float:right;}
+.dec_none{text-decoration:none;}
+.dec_line{text-decoration:underline;}
+
+.input_400{width:380px;height:35px;background:url("../images/inputbg_400.gif") no-repeat;border:none;line-height:35px;padding:0 10px;}
+.btn_upfile{width:113px;height:35px;background:url("../images/btn_upfile.gif") no-repeat;border:none;cursor:pointer;}
+.btn_upfile02{width:113px;height:35px;background:url("../images/btn_upfile02.gif") no-repeat;border:none;cursor:pointer;}
+.btn_120{width:120px;height:35px;background:url("../images/btn_120.gif") no-repeat;border:none;cursor:pointer;line-height:35px;}
+
+.topbar{height:40px;background:#eee url("../images/topbg_black.gif");position:relative;overflow:hidden;}
+.loginbar{height:35px;position:absolute;right:20px;top:0;}
+.loginbar li{display:block;float:left;height:35px;line-height:35px;padding:0 10px;background:url("../images/topline.gif") no-repeat 0 center;}
+.loginbar li a{display:block;height:35px;float:left;line-height:35px;color:#275075;text-decoration:none;}
+.loginbar li a:hover{color:red;}
+
+
+.layout_body{height:100%;overflow:hidden;background:none;border-bottom:2px solid #000;}
+.layout_left{width:70%;height:800px;float:right;overflow:auto;position:relative;background:#444;}
+.layout_right{width:100%;margin-left:-70%;float:right;background:#e2e2e2;height:800px;overflow:auto;}
+.content{margin:0 0 0 70%;color:#171717}
+.artical{width:80%;background:white;border:3px solid black;padding:80px 50px 50px 50px;margin:50px auto;line-height:2em;position:relative;}
+.tit{padding:0 0 20px 0;line-height:3em;}
+.sidebars{padding:10px 30px;line-height:2em;border-bottom:1px dashed #aaa;border-top:1px dashed #efefef;}
+.sidebars p{display:block;padding:5px;}
+.detail a:hover{background:red;color:white;text-decoration:none;}
+
+
+
+/*整体报告部分*/
+.layout_all{overflow:auto;position:relative;background:#444;}
+.all{width:800px;background:#fefcf1 url("../images/stamp.gif") no-repeat;border:3px solid black;padding:20px;margin:50px auto;line-height:2em;position:relative;}
+.ztbg{width:90%;margin:30px auto;border:1px solid #888;}
+.ztbg th,.ztbg td{padding:5px 10px;border:1px solid #bbb;}
+.ztbg th{width:20%;background:#f7f7f7;}
+.ztbg .tablebg{background:url("../images/tablebg.gif") repeat-x;}
+
+
+.corp{width:95%;margin:0 auto;padding:20px;text-align:center;line-height:2em;color:#888}
+.corp a{color:#888;}
+.corp a:hover{color:#888;}
