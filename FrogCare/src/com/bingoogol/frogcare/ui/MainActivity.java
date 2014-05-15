@@ -56,6 +56,8 @@ public class MainActivity extends BaseActivity {
 					break;
 				case 1:
 					// 通讯卫士
+					startActivity(new Intent(mApp, BlacklistActivity.class));
+					overridePendingTransition(R.anim.tran_next_in, R.anim.tran_next_out);
 					break;
 				case 2:
 					// 软件管理
@@ -64,6 +66,8 @@ public class MainActivity extends BaseActivity {
 					break;
 				case 3:
 					// 进程管理
+					startActivity(new Intent(mApp, ProcessManageActivity.class));
+					overridePendingTransition(R.anim.tran_next_in, R.anim.tran_next_out);
 					break;
 				case 4:
 					// 隐私保护

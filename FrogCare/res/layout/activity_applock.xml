@@ -55,9 +55,9 @@
             <ListView
                 android:id="@+id/lv_locked"
                 style="@style/match_match"
-                android:dividerHeight="2dp"
-                android:cacheColorHint="@android:color/transparent"
+                android:dividerHeight="@dimen/size_divider"
                 android:divider="@color/divider"
+                android:cacheColorHint="@android:color/transparent"
                 android:listSelector="@android:color/transparent" >
             </ListView>
         </LinearLayout>

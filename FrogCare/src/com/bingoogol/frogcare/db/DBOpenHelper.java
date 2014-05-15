@@ -15,10 +15,10 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 	 */
 	@Override
 	public void onCreate(SQLiteDatabase db) {
+		// 创建程序锁表
 		db.execSQL("create table applock (_id integer primary key autoincrement , packname varchar(20)) ");
-
-		// 黑名单号码 拦截模式. 1全部 2 电话 3短信
-		//db.execSQL("create table blacknumber (_id integer primary key autoincrement , number varchar(20), mode varchar(2)) ");
+		// 创建黑名单表
+		db.execSQL("create table blacklist (_id integer primary key autoincrement , number varchar(20), mode integer) ");
 	}
 
 	@Override

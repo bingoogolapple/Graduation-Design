@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/match_match"
+    android:background="@color/bg_root_black"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        style="@style/match_wrap"
+        android:background="@color/bg_title_top"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <include layout="@layout/view_back" />
+
+        <TextView
+            style="@style/wrap_wrap"
+            android:gravity="center_vertical"
+            android:text="@string/blacklist_manage"
+            android:textSize="@dimen/textSize_large" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_blacklist"
+        style="@style/match_auto"
+        android:layout_margin="@dimen/size_normal"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@color/divider"
+        android:dividerHeight="@dimen/size_divider" >
+    </ListView>
+
+    <LinearLayout
+        style="@style/match_wrap"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_add"
+            style="@style/match_match"
+            android:layout_margin="@dimen/size_normal"
+            android:background="@drawable/btn_blue_selector"
+            android:padding="@dimen/size_normal"
+            android:text="@string/add"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_middle" />
+    </LinearLayout>
+
+</LinearLayout>

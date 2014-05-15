@@ -35,10 +35,34 @@
     <string name="applock_description">保护您的隐私</string>
     <string name="software_manage">软件管理</string>
     <string name="available_sd_tips">可用SD卡：</string>
-    <string name="available_rom_tips">      可用内存：</string>
+    <string name="available_rom_tips">可用内存：</string>
     <string name="user_software_tips">用户程序个数：</string>
     <string name="system_software_tips">系统程序个数：</string>
     <string name="mobile_storage">手机内存</string>
     <string name="external_storage">外部存储</string>
+    <string name="run">运行</string>
+    <string name="uninstall">卸载</string>
+    <string name="share">分享</string>
+    <string name="can_not_find_app">没有找到当前应用</string>
+    <string name="can_not_run_app">无法启动该应用</string>
+    <string name="recommend_tips">推荐您使用一款软件:</string>
+    <string name="downloadurl_tips">，下载地址：https://play.google.com/store/apps/details?id=</string>
+    <string name="process_manage">进程管理</string>
+    <string name="occupy_storage_tips">占用内存：</string>
+    <string name="user_process_tips">用户进程个数：</string>
+    <string name="system_process_tips">系统进程个数：</string>
+    <string name="select_all">全选</string>
+    <string name="select_inverse">反选</string>
+    <string name="onekey_clean">一键清理</string>
+    <string name="running_process_tips">运行中的进程个数：</string>
+    <string name="available_total_tips">\n可用/总内存:</string>
+    <string name="kill_process_tips">杀死进程个数：</string>
+    <string name="release_storage_tips">\n释放内存：</string>
+    <string name="blacklist_manage">黑名单管理</string>
+    <string name="add">添加</string>
+    <string name="number_tips">号码：</string>
+    <string name="all_intercept">全部拦截</string>
+    <string name="phone_intercept">电话拦截</string>
+    <string name="message_message">短信拦截</string>
 
 </resources>

@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/match_wrap"
-    android:background="@drawable/bg_item_common_selector"
+    android:background="@drawable/bg_item_common"
     android:gravity="center_vertical"
     android:padding="@dimen/size_normal" >
-
-    <ImageView
-        android:id="@+id/iv_software_icon"
-        android:layout_width="@dimen/size_icon_normal"
-        android:layout_height="@dimen/size_icon_normal"
-        android:src="@drawable/ic_launcher" />
 
     <LinearLayout
         style="@style/auto_wrap"
@@ -17,29 +11,27 @@
         android:paddingLeft="@dimen/size_normal" >
 
         <TextView
-            android:id="@+id/tv_software_name"
+            android:id="@+id/tv_number"
             style="@style/match_wrap"
             android:ellipsize="end"
             android:gravity="center_vertical"
             android:maxEms="3"
             android:singleLine="true"
-            android:text="程序名称"
+            android:text="黑名单号码"
             android:textColor="@android:color/white"
             android:textSize="@dimen/textSize_middle" />
 
         <TextView
-            android:id="@+id/tv_software_location"
+            android:id="@+id/tv_mode"
             style="@style/wrap_wrap"
-            android:text="外部存储"
+            android:text="拦截模式"
             android:textColor="@color/text_gray"
             android:textSize="@dimen/textSize_small" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tv_software_version"
+    <ImageButton
+        android:id="@+id/ib_delete"
         style="@style/wrap_wrap"
-        android:text="1.0.1"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/textSize_small" />
+        android:background="@drawable/delete" />
 
 </LinearLayout>

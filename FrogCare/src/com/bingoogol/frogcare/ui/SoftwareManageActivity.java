@@ -3,30 +3,44 @@ package com.bingoogol.frogcare.ui;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.StatFs;
 import android.text.format.Formatter;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView.LayoutParams;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.bingoogol.frogcare.R;
 import com.bingoogol.frogcare.domain.AppInfo;
 import com.bingoogol.frogcare.engine.AppInfoProvider;
 import com.bingoogol.frogcare.ui.view.CLPDialog;
+import com.bingoogol.frogcare.util.DensityUtil;
 import com.bingoogol.frogcare.util.Logger;
+import com.bingoogol.frogcare.util.ToastUtil;
 
 public class SoftwareManageActivity extends BaseActivity {
-	private static final String TAG = "ApplockActivity";
+	private static final String TAG = "SoftwareManageActivity";
 
 	private TextView tv_available_storage;
 	private ListView lv_software;
@@ -46,6 +60,8 @@ public class SoftwareManageActivity extends BaseActivity {
 	private List<AppInfo> mSystemAppInfos;
 	private AppAdapter mAppAdapter;
 
+	private PopupWindow mPopupWindow;
+
 	@Override
 	protected void initView() {
 		setContentView(R.layout.activity_software_manage);
@@ -56,11 +72,50 @@ public class SoftwareManageActivity extends BaseActivity {
 
 	@Override
 	protected void setListener() {
+		lv_software.setOnScrollListener(new OnScrollListener() {
+
+			@Override
+			public void onScrollStateChanged(AbsListView view, int scrollState) {
+			}
+
+			@Override
+			public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+				dismissPopupWindow();
+				if (mUserAppInfos != null && mSystemAppInfos != null) {
+					if (firstVisibleItem >= (mUserAppInfos.size() + 1)) {
+						tv_status.setText(getString(R.string.system_software_tips) + mSystemAppInfos.size());
+					} else {
+						tv_status.setText(getString(R.string.user_software_tips) + mUserAppInfos.size());
+					}
+				}
+			}
+		});
 		lv_software.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				Logger.i(TAG, "hehe");
+				dismissPopupWindow();
+				// 把点击的条目 赋值给类的成员变量
+				mAppInfo = (AppInfo) lv_software.getItemAtPosition(position);
+				Logger.i(TAG, "被点击的条目包名:" + mAppInfo.getPackname());
+				// popupwindow 类似于对话框 轻量级的activity 重量级的对话框
+				View contentView = View.inflate(getApplicationContext(), R.layout.view_software_popupwindow, null);
+				contentView.findViewById(R.id.btn_software_run).setOnClickListener(SoftwareManageActivity.this);
+				contentView.findViewById(R.id.btn_software_uninstall).setOnClickListener(SoftwareManageActivity.this);
+				contentView.findViewById(R.id.btn_software_share).setOnClickListener(SoftwareManageActivity.this);
+
+				mPopupWindow = new PopupWindow(contentView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+				// 如果想让在点击别的地方的时候 关闭掉弹出窗体 一定要记得给mPopupWindow设置一个背景资源
+				mPopupWindow.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+				int[] location = new int[2];
+				view.getLocationInWindow(location);
+				mPopupWindow.showAtLocation(parent, Gravity.TOP + Gravity.LEFT, location[0] + DensityUtil.dip2px(getApplicationContext(), 60), location[1]);
+
+				ScaleAnimation sa = new ScaleAnimation(0.5f, 1.1f, 0.5f, 1.1f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+				sa.setDuration(500);
+
+				contentView.startAnimation(sa);
 			}
 		});
 	}
@@ -68,13 +123,42 @@ public class SoftwareManageActivity extends BaseActivity {
 	@Override
 	protected void afterViews(Bundle savedInstanceState) {
 		mClpDialog = new CLPDialog(this);
-		tv_available_storage.setText(getString(R.string.available_sd_tips) + getAvailROM() + getString(R.string.available_sd_tips) + getAvailSD());
-		fillData();
 	}
 
 	@Override
-	public void onClick(View arg0) {
+	public void onClick(View view) {
+		dismissPopupWindow();
+		switch (view.getId()) {
+		case R.id.btn_software_run:
+			startApplication();
+			break;
+		case R.id.btn_software_uninstall:
+			uninstallApplication();
+			break;
+		case R.id.btn_software_share:
+			shareApplication();
+			break;
+		}
+	}
 
+	@Override
+	protected void onStart() {
+		super.onStart();
+		tv_available_storage.setText(getString(R.string.available_sd_tips) + getAvailSD() + "    " + getString(R.string.available_rom_tips) + getAvailROM());
+		fillData();
+	}
+
+	private void dismissPopupWindow() {
+		if (mPopupWindow != null && mPopupWindow.isShowing()) {
+			mPopupWindow.dismiss();
+			mPopupWindow = null;
+		}
+	}
+
+	@Override
+	protected void onDestroy() {
+		dismissPopupWindow();
+		super.onDestroy();
 	}
 
 	/**
@@ -140,6 +224,51 @@ public class SoftwareManageActivity extends BaseActivity {
 		}.execute();
 	}
 
+	/**
+	 * 卸载一个应用程序
+	 */
+	private void uninstallApplication() {
+		Intent intent = new Intent();
+		intent.setAction("android.intent.action.DELETE");
+		intent.addCategory("android.intent.category.DEFAULT");
+		intent.setData(Uri.parse("package:" + mAppInfo.getPackname()));
+		startActivity(intent);
+	}
+
+	/**
+	 * 开启一个应用,实质上就是开启这个应用的第一个activity
+	 */
+	private void startApplication() {
+		try {
+			PackageInfo info = getPackageManager().getPackageInfo(mAppInfo.getPackname(), PackageManager.GET_ACTIVITIES);
+			ActivityInfo[] activityInfos = info.activities;
+			if (activityInfos != null && activityInfos.length > 0) {
+				ActivityInfo activityInfo = activityInfos[0];
+				// 代表的就是当前应用程序入口的activity
+				String className = activityInfo.name;
+				Intent intent = new Intent();
+				intent.setClassName(mAppInfo.getPackname(), className);
+				startActivity(intent);
+			} else {
+				ToastUtil.makeText(this, R.string.can_not_run_app);
+			}
+		} catch (Exception e) {
+			ToastUtil.makeText(this, R.string.can_not_find_app);
+		}
+
+	}
+
+	/**
+	 * 分享一个应用程序
+	 */
+	private void shareApplication() {
+		Intent intent = new Intent();
+		intent.setAction("android.intent.action.SEND");
+		intent.setType("text/plain");
+		intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.recommend_tips) + mAppInfo.getAppName() + getString(R.string.downloadurl_tips) + mAppInfo.getPackname());
+		startActivity(intent);
+	}
+
 	private class AppAdapter extends BaseAdapter {
 
 		/**
@@ -200,13 +329,13 @@ public class SoftwareManageActivity extends BaseActivity {
 			View view = null;
 			ViewHolder holder;
 			if (position == 0) {// 第0个位置的条目. 显示一个textview
-				TextView tv = (TextView) View.inflate(getApplicationContext(), R.layout.view_software_manage_title, null);
+				TextView tv = (TextView) View.inflate(getApplicationContext(), R.layout.view_list_title, null);
 				tv.setText(getString(R.string.user_software_tips) + mUserAppInfos.size());
 				return tv;
 			} else if (position == (mUserAppInfos.size() + 1)) {
 				// 第2个textview 显示
 				// 有多少个系统程序
-				TextView tv = (TextView) View.inflate(getApplicationContext(), R.layout.view_software_manage_title, null);
+				TextView tv = (TextView) View.inflate(getApplicationContext(), R.layout.view_list_title, null);
 				tv.setText(getString(R.string.system_software_tips) + mSystemAppInfos.size());
 				return tv;
 			} else if (position <= mUserAppInfos.size()) {
@@ -220,7 +349,7 @@ public class SoftwareManageActivity extends BaseActivity {
 				int newposition = position - mUserAppInfos.size() - 2;
 				appInfo = mSystemAppInfos.get(newposition);
 			}
-			
+
 			if (convertView != null && convertView instanceof LinearLayout) {
 				view = convertView;
 				holder = (ViewHolder) view.getTag();

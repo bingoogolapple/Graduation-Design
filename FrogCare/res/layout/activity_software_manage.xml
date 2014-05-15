@@ -22,28 +22,26 @@
     <TextView
         android:id="@+id/tv_available_storage"
         style="@style/list_title"
-        android:gravity="center"
         android:layout_marginTop="@dimen/size_normal"
-        android:text="@string/available_rom_tips" />
+        android:gravity="center"/>
 
-    <FrameLayout style="@style/match_match" 
-        android:background="@color/bg_black"
-        android:layout_margin="@dimen/size_normal">
+    <FrameLayout
+        style="@style/match_match"
+        android:layout_margin="@dimen/size_normal"
+        android:background="@color/bg_black" >
 
         <ListView
             android:id="@+id/lv_software"
             style="@style/match_match"
             android:cacheColorHint="@android:color/transparent"
-            android:fastScrollEnabled="true" >
+            android:divider="@color/divider"
+            android:dividerHeight="@dimen/size_divider" >
         </ListView>
         <!-- android:cacheColorHint="@android:color/transparent"快速拖动时的背景 -->
-        <!-- android:fastScrollEnabled="true"快速拖动时显示拖动滑块 -->
 
-        <TextView
+        <include
             android:id="@+id/tv_status"
-            style="@style/list_title"
-            android:paddingLeft="@dimen/size_normal"
-            android:text="@string/user_software_tips" />
+            layout="@layout/view_list_title" />
     </FrameLayout>
 
 </LinearLayout>

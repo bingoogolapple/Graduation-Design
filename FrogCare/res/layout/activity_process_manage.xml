@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/match_match"
+    android:background="@color/bg_root_black"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        style="@style/match_wrap"
+        android:background="@color/bg_title_top"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <include layout="@layout/view_back" />
+
+        <TextView
+            style="@style/wrap_wrap"
+            android:gravity="center_vertical"
+            android:text="@string/process_manage"
+            android:textSize="@dimen/textSize_large" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_process_storage"
+        style="@style/list_title"
+        android:layout_marginTop="@dimen/size_normal"
+        android:gravity="center" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/size_normal"
+        android:layout_weight="1"
+        android:background="@color/bg_black" >
+
+        <ListView
+            android:id="@+id/lv_process"
+            style="@style/match_match"
+            android:cacheColorHint="@android:color/transparent"
+            android:divider="@color/divider"
+            android:dividerHeight="@dimen/size_divider" >
+        </ListView>
+        <!-- android:cacheColorHint="@android:color/transparent"快速拖动时的背景 -->
+
+        <include
+            android:id="@+id/tv_status"
+            layout="@layout/view_list_title" />
+    </FrameLayout>
+
+    <LinearLayout
+        style="@style/match_wrap"
+        android:layout_marginBottom="@dimen/size_normal"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_select_all"
+            style="@style/auto_wrap"
+            android:layout_marginLeft="@dimen/size_normal"
+            android:background="@drawable/btn_blue_selector"
+            android:padding="@dimen/size_normal"
+            android:text="@string/select_all"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_middle" />
+
+        <Button
+            android:id="@+id/btn_select_inverse"
+            style="@style/auto_wrap"
+            android:layout_marginLeft="@dimen/size_normal"
+            android:layout_marginRight="@dimen/size_normal"
+            android:background="@drawable/btn_blue_selector"
+            android:padding="@dimen/size_normal"
+            android:text="@string/select_inverse"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_middle" />
+
+        <Button
+            android:id="@+id/btn_onekey_clean"
+            style="@style/auto_wrap"
+            android:layout_marginRight="@dimen/size_normal"
+            android:background="@drawable/btn_blue_selector"
+            android:padding="@dimen/size_normal"
+            android:text="@string/onekey_clean"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_middle" />
+    </LinearLayout>
+
+</LinearLayout>

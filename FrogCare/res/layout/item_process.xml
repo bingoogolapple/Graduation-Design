@@ -6,7 +6,7 @@
     android:padding="@dimen/size_normal" >
 
     <ImageView
-        android:id="@+id/iv_software_icon"
+        android:id="@+id/iv_process_icon"
         android:layout_width="@dimen/size_icon_normal"
         android:layout_height="@dimen/size_icon_normal"
         android:src="@drawable/ic_launcher" />
@@ -17,7 +17,7 @@
         android:paddingLeft="@dimen/size_normal" >
 
         <TextView
-            android:id="@+id/tv_software_name"
+            android:id="@+id/tv_process_name"
             style="@style/match_wrap"
             android:ellipsize="end"
             android:gravity="center_vertical"
@@ -28,18 +28,18 @@
             android:textSize="@dimen/textSize_middle" />
 
         <TextView
-            android:id="@+id/tv_software_location"
+            android:id="@+id/tv_storage"
             style="@style/wrap_wrap"
-            android:text="外部存储"
+            android:text="@string/occupy_storage_tips"
             android:textColor="@color/text_gray"
             android:textSize="@dimen/textSize_small" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tv_software_version"
+    <CheckBox
+        android:id="@+id/cb_process"
         style="@style/wrap_wrap"
-        android:text="1.0.1"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/textSize_small" />
+        android:button="@drawable/checkbox_selector"
+        android:clickable="false"
+        android:focusable="false" />
 
 </LinearLayout>

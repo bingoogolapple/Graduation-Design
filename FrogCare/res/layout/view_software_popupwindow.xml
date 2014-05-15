@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/wrap_wrap"
+    android:background="@drawable/bg_dialog"
+    android:padding="@dimen/size_normal" >
+
+    <Button
+        android:id="@+id/btn_software_run"
+        style="@style/wrap_wrap"
+        android:background="@drawable/btn_blue_selector"
+        android:text="@string/run"
+        android:textSize="@dimen/textSize_middle"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/btn_software_uninstall"
+        style="@style/wrap_wrap"
+        android:textSize="@dimen/textSize_middle"
+        android:layout_marginLeft="@dimen/size_normal"
+        android:layout_marginRight="@dimen/size_normal"
+        android:background="@drawable/btn_blue_selector"
+        android:text="@string/uninstall"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/btn_software_share"
+        style="@style/wrap_wrap"
+        android:textSize="@dimen/textSize_middle"
+        android:background="@drawable/btn_blue_selector"
+        android:text="@string/share"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>
