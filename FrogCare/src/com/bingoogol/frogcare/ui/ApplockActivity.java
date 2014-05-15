@@ -3,6 +3,7 @@ package com.bingoogol.frogcare.ui;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -176,30 +177,45 @@ public class ApplockActivity extends BaseActivity {
 	}
 
 	private void fillData() {
-		mClpDialog.show();
-		List<AppInfo> allAppinfos = AppInfoProvider.getAppInfos(ApplockActivity.this);
-		// 初始化未加锁的程序集合
-		mUnlockAppInfos = new ArrayList<AppInfo>();
-		// 初始化已加锁程序集合
-		mLockedAppInfos = new ArrayList<AppInfo>();
+		new AsyncTask<Void, Void, Void>() {
 
-		for (AppInfo appInfo : allAppinfos) {
-			if (mAppLockDao.find(appInfo.getPackname())) {
-				mLockedAppInfos.add(appInfo);
-			} else {
-				mUnlockAppInfos.add(appInfo);
+			@Override
+			protected void onPreExecute() {
+				mClpDialog.show();
 			}
-		}
-		Logger.i(TAG, "获取数据完成");
-		mClpDialog.dismiss();
-		if (mUnlockAdapter == null) {
-			mUnlockAdapter = new AppLockAdapter(true);
-		}
-		lv_unlock.setAdapter(mUnlockAdapter);
-		if (mLockedAdapter == null) {
-			mLockedAdapter = new AppLockAdapter(false);
-		}
-		lv_locked.setAdapter(mLockedAdapter);
+			
+			@Override
+			protected Void doInBackground(Void... params) {
+				List<AppInfo> allAppinfos = AppInfoProvider.getAppInfos(ApplockActivity.this);
+				// 初始化未加锁的程序集合
+				mUnlockAppInfos = new ArrayList<AppInfo>();
+				// 初始化已加锁程序集合
+				mLockedAppInfos = new ArrayList<AppInfo>();
+
+				for (AppInfo appInfo : allAppinfos) {
+					if (mAppLockDao.find(appInfo.getPackname())) {
+						mLockedAppInfos.add(appInfo);
+					} else {
+						mUnlockAppInfos.add(appInfo);
+					}
+				}
+				Logger.i(TAG, "获取数据完成");
+				return null;
+			}
+			
+			@Override
+			protected void onPostExecute(Void result) {
+				mClpDialog.dismiss();
+				if (mUnlockAdapter == null) {
+					mUnlockAdapter = new AppLockAdapter(true);
+				}
+				lv_unlock.setAdapter(mUnlockAdapter);
+				if (mLockedAdapter == null) {
+					mLockedAdapter = new AppLockAdapter(false);
+				}
+				lv_locked.setAdapter(mLockedAdapter);
+			}
+		}.execute();
 	}
 
 	@Override

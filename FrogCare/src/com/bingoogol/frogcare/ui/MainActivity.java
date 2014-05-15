@@ -59,6 +59,8 @@ public class MainActivity extends BaseActivity {
 					break;
 				case 2:
 					// 软件管理
+					startActivity(new Intent(mApp, SoftwareManageActivity.class));
+					overridePendingTransition(R.anim.tran_next_in, R.anim.tran_next_out);
 					break;
 				case 3:
 					// 进程管理

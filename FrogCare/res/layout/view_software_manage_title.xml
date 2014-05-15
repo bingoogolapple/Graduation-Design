@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/list_title"
+    android:paddingLeft="@dimen/size_normal"
+    android:text="@string/user_software_tips" />

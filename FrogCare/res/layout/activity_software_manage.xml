@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/match_match"
+    android:background="@color/bg_root_black"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        style="@style/match_wrap"
+        android:background="@color/bg_title_top"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <include layout="@layout/view_back" />
+
+        <TextView
+            style="@style/wrap_wrap"
+            android:gravity="center_vertical"
+            android:text="@string/software_manage"
+            android:textSize="@dimen/textSize_large" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_available_storage"
+        style="@style/list_title"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/size_normal"
+        android:text="@string/available_rom_tips" />
+
+    <FrameLayout style="@style/match_match" 
+        android:background="@color/bg_black"
+        android:layout_margin="@dimen/size_normal">
+
+        <ListView
+            android:id="@+id/lv_software"
+            style="@style/match_match"
+            android:cacheColorHint="@android:color/transparent"
+            android:fastScrollEnabled="true" >
+        </ListView>
+        <!-- android:cacheColorHint="@android:color/transparent"快速拖动时的背景 -->
+        <!-- android:fastScrollEnabled="true"快速拖动时显示拖动滑块 -->
+
+        <TextView
+            android:id="@+id/tv_status"
+            style="@style/list_title"
+            android:paddingLeft="@dimen/size_normal"
+            android:text="@string/user_software_tips" />
+    </FrameLayout>
+
+</LinearLayout>

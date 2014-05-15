@@ -33,5 +33,12 @@
     <string name="unlock_count">未加锁应用个数：</string>
     <string name="locked_count">已加锁应用个数：</string>
     <string name="applock_description">保护您的隐私</string>
+    <string name="software_manage">软件管理</string>
+    <string name="available_sd_tips">可用SD卡：</string>
+    <string name="available_rom_tips">      可用内存：</string>
+    <string name="user_software_tips">用户程序个数：</string>
+    <string name="system_software_tips">系统程序个数：</string>
+    <string name="mobile_storage">手机内存</string>
+    <string name="external_storage">外部存储</string>
 
 </resources>

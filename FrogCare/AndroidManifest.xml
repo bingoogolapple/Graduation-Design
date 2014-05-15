@@ -74,6 +74,9 @@
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bingoogol.frogcare.ui.SoftwareManageActivity"
+            android:screenOrientation="portrait" />
 
         <service
             android:name="com.bingoogol.frogcare.service.WatchDogService"
