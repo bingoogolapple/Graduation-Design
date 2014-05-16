@@ -229,8 +229,8 @@ public class SoftwareManageActivity extends BaseActivity {
 	 */
 	private void uninstallApplication() {
 		Intent intent = new Intent();
-		intent.setAction("android.intent.action.DELETE");
-		intent.addCategory("android.intent.category.DEFAULT");
+		intent.setAction(Intent.ACTION_DELETE);
+		intent.addCategory(Intent.CATEGORY_DEFAULT);
 		intent.setData(Uri.parse("package:" + mAppInfo.getPackname()));
 		startActivity(intent);
 	}

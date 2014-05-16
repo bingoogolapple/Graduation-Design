@@ -2,14 +2,21 @@ package com.bingoogol.frogcare.ui;
 
 import java.util.List;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.widget.AbsListView;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -42,6 +49,8 @@ public class BlacklistActivity extends BaseActivity {
 
 	private BlacklistAdapter mBlacklistAdapter;
 
+	private BlacklistDialog mBlacklistDialog;
+
 	@Override
 	protected void initView() {
 		setContentView(R.layout.activity_blacklist);
@@ -51,6 +60,52 @@ public class BlacklistActivity extends BaseActivity {
 	@Override
 	protected void setListener() {
 		findViewById(R.id.btn_add).setOnClickListener(this);
+		lv_blacklist.setOnScrollListener(new AbsListView.OnScrollListener() {
+
+			/**
+			 * 当滚动状态变化
+			 */
+			@Override
+			public void onScrollStateChanged(AbsListView view, int scrollState) {
+				switch (scrollState) {
+				case AbsListView.OnScrollListener.SCROLL_STATE_IDLE:
+					// 代表的是listview停止滚动了. 19
+					int lastPosition = lv_blacklist.getLastVisiblePosition();
+					// 20
+					int size = mBlacklistInfos.size();
+					if (lastPosition == (size - 1)) {
+						// 滚动到最后面了.
+						// 加载下一页的数据
+						Logger.i(TAG, "加载更多的数据");
+						mPagenumber++;
+						if (mPagenumber > mTotalPageNumber) {
+							ToastUtil.makeText(mApp, R.string.not_have_more_data);
+							// TextView tv = new
+							// TextView(getApplicationContext());
+							// tv.setText("没有了...");
+							// lv_callsms_safe.addFooterView(tv);
+							// lv_callsms_safe.setAdapter(adapter);
+							// lv_callsms_safe.setSelection(infos.size()-1);
+						} else {
+							fillData();
+						}
+					}
+					break;
+				case AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL:
+					break;
+				case AbsListView.OnScrollListener.SCROLL_STATE_FLING:
+					break;
+				}
+			}
+
+			/**
+			 * 滚动的时候调用
+			 */
+			@Override
+			public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+			}
+		});
 	}
 
 	@Override
@@ -62,16 +117,10 @@ public class BlacklistActivity extends BaseActivity {
 
 	@Override
 	public void onClick(View v) {
-
-		if (v.getId() == R.id.btn_add) {
-			BlacklistInfo blacklistInfo = new BlacklistInfo("123", 1);
-			if (mBlacklistDao.add(blacklistInfo) > 0) {
-				mBlacklistInfos.add(blacklistInfo);
-				mBlacklistAdapter.notifyDataSetChanged();
-			} else {
-				ToastUtil.makeText(mApp, "添加黑名单号码失败");
-			}
+		if (mBlacklistDialog == null) {
+			mBlacklistDialog = new BlacklistDialog(this);
 		}
+		mBlacklistDialog.show();
 	}
 
 	private void fillData() {
@@ -116,13 +165,11 @@ public class BlacklistActivity extends BaseActivity {
 
 		@Override
 		public Object getItem(int position) {
-			// TODO Auto-generated method stub
 			return null;
 		}
 
 		@Override
 		public long getItemId(int position) {
-			// TODO Auto-generated method stub
 			return 0;
 		}
 
@@ -152,7 +199,7 @@ public class BlacklistActivity extends BaseActivity {
 			} else if (blacklistInfo.getMode() == 2) {
 				holder.tv_mode.setText(R.string.phone_intercept);
 			} else if (blacklistInfo.getMode() == 3) {
-				holder.tv_mode.setText(R.string.message_message);
+				holder.tv_mode.setText(R.string.sms_intercept);
 			}
 			holder.ib_delete.setOnClickListener(new OnClickListener() {
 
@@ -172,4 +219,61 @@ public class BlacklistActivity extends BaseActivity {
 		TextView tv_mode;
 		ImageButton ib_delete;
 	}
+
+	private class BlacklistDialog extends Dialog implements OnClickListener {
+		private EditText et_number;
+		private RadioGroup rg_mode;
+
+		public BlacklistDialog(Context context) {
+			super(context, R.style.Theme_Dialog);
+		}
+
+		protected void onCreate(Bundle savedInstanceState) {
+			super.onCreate(savedInstanceState);
+			setCanceledOnTouchOutside(false);
+			setContentView(R.layout.dialog_blacklist);
+			et_number = (EditText) this.findViewById(R.id.et_number);
+			rg_mode = (RadioGroup) this.findViewById(R.id.rg_mode);
+			this.findViewById(R.id.btn_add).setOnClickListener(this);
+			this.findViewById(R.id.btn_cancel).setOnClickListener(this);
+		}
+
+		@Override
+		public void onClick(View v) {
+			switch (v.getId()) {
+			case R.id.btn_cancel:
+				this.dismiss();
+				break;
+			case R.id.btn_add:
+				String number = et_number.getText().toString().trim();
+				if (TextUtils.isEmpty(number)) {
+					ToastUtil.makeText(mApp, R.string.blacklist_number_not_allow_null);
+					et_number.startAnimation(AnimationUtils.loadAnimation(mApp, R.anim.shake));
+				} else {
+					BlacklistInfo blacklistInfo = new BlacklistInfo(number, 1);
+					switch (rg_mode.getCheckedRadioButtonId()) {
+					case R.id.rb_all:
+						blacklistInfo.setMode(1);
+						break;
+					case R.id.rb_phone:
+						blacklistInfo.setMode(2);
+						break;
+					case R.id.rb_sms:
+						blacklistInfo.setMode(3);
+						break;
+					}
+					if (mBlacklistDao.add(blacklistInfo) > 0) {
+						mBlacklistInfos.add(blacklistInfo);
+						mBlacklistAdapter.notifyDataSetChanged();
+					} else {
+						ToastUtil.makeText(mApp, "添加黑名单号码失败");
+					}
+					et_number.setText("");
+					this.dismiss();
+				}
+				break;
+			}
+		};
+	};
+
 }

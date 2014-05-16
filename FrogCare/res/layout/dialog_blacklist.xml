@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/dialog_root_width"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog"
+    android:orientation="vertical" >
+
+    <TextView
+        style="@style/dialog_title"
+        android:background="@android:color/transparent"
+        android:text="@string/add_blacklist_number" />
+
+    <EditText
+        android:id="@+id/et_number"
+        style="@style/dialog_et"
+        android:hint="@string/please_input_blacklist_number"
+        android:inputType="number" />
+
+    <RadioGroup
+        android:id="@+id/rg_mode"
+        style="@style/wrap_wrap"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rb_all"
+            style="@style/dialog_rb"
+            android:checked="true"
+            android:text="@string/all" />
+
+        <RadioButton
+            android:id="@+id/rb_phone"
+            style="@style/dialog_rb"
+            android:layout_marginLeft="@dimen/size_normal"
+            android:layout_marginRight="@dimen/size_normal"
+            android:text="@string/phone" />
+
+        <RadioButton
+            android:id="@+id/rb_sms"
+            style="@style/dialog_rb"
+            android:text="@string/sms" />
+    </RadioGroup>
+
+    <LinearLayout style="@style/match_wrap" >
+
+        <Button
+            android:id="@+id/btn_cancel"
+            style="@style/dialog_btn"
+            android:background="@drawable/btn_gray_selector"
+            android:text="@string/cancel" />
+
+        <Button
+            android:id="@+id/btn_add"
+            style="@style/dialog_btn"
+            android:background="@drawable/btn_blue_selector"
+            android:text="@string/add" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -7,31 +7,16 @@
 
     <TextView
         android:id="@+id/tv_dialog_prompt_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:gravity="center"
-        android:padding="@dimen/dialog_padding"
-        android:text="Title"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/textSize_large" />
+        style="@style/dialog_title"
+        android:text="Title" />
 
     <EditText
         android:id="@+id/et_dialog_prompt_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/textfield_pressed"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
+        style="@style/dialog_et"
         android:hint="Please"
-        android:inputType="number"
-        android:padding="@dimen/dialog_padding"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/textSize_small" />
+        android:inputType="number" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+    <LinearLayout style="@style/match_wrap" >
 
         <Button
             android:id="@+id/btn_dialog_prompt_left"

@@ -1,21 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/match_match"
-    android:background="@color/bg_root_black"
-    android:gravity="center"
-    android:orientation="vertical" >
+    android:background="@color/bg_root_black" >
 
-    <TextView
-        style="@style/wrap_wrap"
-        android:text="青蛙卫士"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/textSize_large" />
+    <RelativeLayout style="@style/match_match" >
 
-    <TextView
-        android:id="@+id/tv_splash_versionName"
-        style="@style/wrap_wrap"
-        android:layout_marginTop="20dp"
-        android:text="v1.0"
-        android:textSize="@dimen/textSize_small" />
+        <ImageView
+            android:id="@+id/iv_rocket"
+            style="@style/wrap_wrap"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/rocket" />
+    </RelativeLayout>
 
-</LinearLayout>
+    <LinearLayout
+        style="@style/match_match"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            style="@style/wrap_wrap"
+            android:text="青蛙卫士"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_large" />
+
+        <TextView
+            android:id="@+id/tv_splash_versionName"
+            style="@style/wrap_wrap"
+            android:layout_marginTop="20dp"
+            android:text="v1.0"
+            android:textSize="@dimen/textSize_small" />
+    </LinearLayout>
+
+</FrameLayout>

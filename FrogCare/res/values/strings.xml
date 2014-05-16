@@ -63,6 +63,22 @@
     <string name="number_tips">号码：</string>
     <string name="all_intercept">全部拦截</string>
     <string name="phone_intercept">电话拦截</string>
-    <string name="message_message">短信拦截</string>
+    <string name="sms_intercept">短信拦截</string>
+    <string name="add_blacklist_number">添加黑名单号码</string>
+    <string name="please_input_blacklist_number">请输入黑名单号码</string>
+    <string name="all">全部</string>
+    <string name="phone">电话</string>
+    <string name="sms">短信</string>
+    <string name="blacklist_number_not_allow_null">黑名单号码不能为空</string>
+    <string name="not_have_more_data">没有更多的数据了</string>
+    <string name="kill_virus">病毒查杀</string>
+    <string name="init_ing_virus">正在初始化扫毒引擎</string>
+    <string name="scan_end">扫描完毕</string>
+    <string name="discover_virus">发现病毒:</string>
+    <string name="scan_safety">扫描安全:</string>
+    <string name="kill_virus_tip">查杀病毒提示</string>
+    <string name="virus_number_tips">发现病毒个数：</string>
+    <string name="is_kill_virus">\n是否立即查杀？</string>
+    <string name="kill">查杀</string>
 
 </resources>

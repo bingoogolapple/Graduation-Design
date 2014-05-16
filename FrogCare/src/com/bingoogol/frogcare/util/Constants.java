@@ -45,4 +45,11 @@ public final class Constants {
 		public static final String APPLOCK_PWD = "applockpwd";
 		public static final String APPLOCK = "applock";
 	}
+
+	public static final class dbname {
+		public static final String ADDRESS = "address.db";
+		public static final String COMMONNUM = "commonnum.db";
+		public static final String ANTIVIRUS = "antivirus.db";
+
+	}
 }

@@ -1,6 +1,8 @@
 package com.bingoogol.frogcare.ui;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -9,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.bingoogol.frogcare.R;
@@ -20,6 +23,7 @@ import com.bingoogol.frogcare.util.Constants;
 import com.bingoogol.frogcare.util.Logger;
 import com.bingoogol.frogcare.util.SpUtil;
 import com.bingoogol.frogcare.util.StorageUtil;
+import com.bingoogol.frogcare.util.StreamUtil;
 import com.bingoogol.frogcare.util.ToastUtil;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.FileAsyncHttpResponseHandler;
@@ -46,7 +50,10 @@ public class SplashActivity extends BaseActivity {
 	@Override
 	protected void afterViews(Bundle savedInstanceState) {
 		((TextView) findViewById(R.id.tv_splash_versionName)).setText(mApp.getCurrentVersionName());
-		
+		findViewById(R.id.iv_rocket).startAnimation(AnimationUtils.loadAnimation(mApp, R.anim.rocket));
+		copyDB(Constants.dbname.ADDRESS);
+		copyDB(Constants.dbname.ANTIVIRUS);
+		copyDB(Constants.dbname.COMMONNUM);
 		checkVersion();
 	}
 
@@ -62,14 +69,15 @@ public class SplashActivity extends BaseActivity {
 							showUpgradDialog();
 						} else {
 							// 没有新版本，不用升级，进入主界面
-							loadMainActivity();
+							loadMainActivityDelay();
 						}
 					} catch (JSONException e) {
 						// 解析升级信息失败，进入主界面
 						Logger.e(TAG, "解析升级信息异常");
-						loadMainActivity();
+						loadMainActivityDelay();
 					}
 				}
+
 				@Override
 				public void onFailure(Throwable e, JSONObject errorResponse) {
 					Logger.e(TAG, "获取升级信息失败");
@@ -170,5 +178,50 @@ public class SplashActivity extends BaseActivity {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 
+	}
+
+	private void copyDB(final String dbname) {
+		new Thread() {
+			public void run() {
+				InputStream is = null;
+				FileOutputStream fos = null;
+				try {
+					File file = new File(getFilesDir(), dbname);
+					if (file.exists() && file.length() > 0) {
+						Logger.i(TAG, "数据库已经存在无需拷贝");
+					} else {
+						is = getAssets().open(dbname);
+						// data/data/包名/files/address.db
+						fos = new FileOutputStream(file);
+						byte[] buffer = new byte[1024];
+						int len = 0;
+						while ((len = is.read(buffer)) != -1) {
+							fos.write(buffer, 0, len);
+						}
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+					showToastInMainThread("拷贝数据库失败");
+				} finally {
+					StreamUtil.close(is, "关闭数据库输入流失败");
+					StreamUtil.close(fos, "关闭数据库输出流失败");
+				}
+
+			};
+		}.start();
+	}
+
+	/**
+	 * 在主线程显示土司
+	 * 
+	 * @param text
+	 */
+	public void showToastInMainThread(final String text) {
+		runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				ToastUtil.makeText(mApp, text);
+			}
+		});
 	}
 }

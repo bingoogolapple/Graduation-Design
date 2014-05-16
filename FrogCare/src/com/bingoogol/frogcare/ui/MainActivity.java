@@ -76,6 +76,8 @@ public class MainActivity extends BaseActivity {
 					break;
 				case 5:
 					// 手机杀毒
+					startActivity(new Intent(mApp, VirusActivity.class));
+					overridePendingTransition(R.anim.tran_next_in, R.anim.tran_next_out);
 					break;
 				case 6:
 					// 系统优化

@@ -75,6 +75,28 @@
         <item name="android:textSize">@dimen/textSize_small</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
+
+    <style name="dialog_title" parent="@style/match_wrap">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:padding">@dimen/dialog_padding</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/textSize_large</item>
+    </style>
+
+    <style name="dialog_et" parent="@style/match_wrap">
+        <item name="android:layout_margin">@dimen/size_normal</item>
+        <item name="android:background">@drawable/textfield_pressed</item>
+        <item name="android:padding">@dimen/dialog_padding</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/textSize_small</item>
+    </style>
+
+    <style name="dialog_rb" parent="@style/wrap_wrap">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/textSize_small</item>
+        <item name="android:button">@drawable/radio_selector</item>
+    </style>
     <!-- Dialog END -->
     <style name="list_title" parent="@style/match_wrap">
         <item name="android:background">@color/bg_black</item>

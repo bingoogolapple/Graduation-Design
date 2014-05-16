@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/match_match"
+    android:background="@color/bg_root_black"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        style="@style/match_wrap"
+        android:background="@color/bg_title_top"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <include layout="@layout/view_back" />
+
+        <TextView
+            style="@style/wrap_wrap"
+            android:gravity="center_vertical"
+            android:text="@string/kill_virus"
+            android:textSize="@dimen/textSize_large" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/match_wrap"
+        android:layout_margin="@dimen/size_normal"
+        android:orientation="horizontal" >
+
+        <FrameLayout
+            style="@style/wrap_wrap"
+            android:background="@android:color/white" >
+
+            <ImageView
+                style="@style/wrap_wrap"
+                android:background="@drawable/scan_bg" />
+
+            <ImageView
+                android:id="@+id/iv_scan"
+                style="@style/wrap_wrap"
+                android:background="@drawable/scan_line" />
+        </FrameLayout>
+
+        <LinearLayout
+            style="@style/match_wrap"
+            android:orientation="vertical"
+            android:padding="@dimen/size_large" >
+
+            <TextView
+                android:id="@+id/tv_scan_info"
+                style="@style/match_wrap"
+                android:layout_marginBottom="@dimen/size_large"
+                android:ellipsize="end"
+                android:gravity="center_horizontal"
+                android:maxEms="3"
+                android:maxLines="2"
+                android:minLines="2"
+                android:text="包名"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/textSize_middle" />
+
+            <ProgressBar
+                android:id="@+id/pb_scan"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_large"
+                android:background="@color/bg_progressbar_function_gray"
+                android:max="100"
+                android:progress="0"
+                android:progressDrawable="@drawable/progressbar_blue_layer" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        style="@style/match_match"
+        android:layout_margin="@dimen/size_normal"
+        android:background="@color/bg_black"
+        android:padding="@dimen/size_large"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/ll_container"
+            style="@style/match_match"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
