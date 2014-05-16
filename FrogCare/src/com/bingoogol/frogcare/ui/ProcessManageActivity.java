@@ -355,13 +355,13 @@ public class ProcessManageActivity extends BaseActivity {
 			View view = null;
 			ViewHolder holder;
 			if (position == 0) {// 第0个位置的条目. 显示一个textview
-				TextView tv = (TextView) View.inflate(getApplicationContext(), R.layout.view_list_title, null);
+				TextView tv = (TextView) View.inflate(mApp, R.layout.view_list_title, null);
 				tv.setText(getString(R.string.user_process_tips) + mUserProcessInfos.size());
 				return tv;
 			} else if (position == (mUserProcessInfos.size() + 1)) {
 				// 第2个textview 显示
 				// 有多少个系统进程
-				TextView tv = (TextView) View.inflate(getApplicationContext(), R.layout.view_list_title, null);
+				TextView tv = (TextView) View.inflate(mApp, R.layout.view_list_title, null);
 				tv.setText(getString(R.string.system_software_tips) + mSystemProcessInfos.size());
 				return tv;
 			} else if (position <= mUserProcessInfos.size()) {
@@ -380,7 +380,7 @@ public class ProcessManageActivity extends BaseActivity {
 				view = convertView;
 				holder = (ViewHolder) view.getTag();
 			} else {
-				view = View.inflate(getApplicationContext(), R.layout.item_process, null);
+				view = View.inflate(mApp, R.layout.item_process, null);
 				holder = new ViewHolder();
 				holder.iv_process_icon = (ImageView) view.findViewById(R.id.iv_process_icon);
 				holder.tv_process_name = (TextView) view.findViewById(R.id.tv_process_name);

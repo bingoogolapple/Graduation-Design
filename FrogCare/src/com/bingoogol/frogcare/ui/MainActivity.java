@@ -81,6 +81,8 @@ public class MainActivity extends BaseActivity {
 					break;
 				case 6:
 					// 系统优化
+					startActivity(new Intent(mApp, OptimizeActivity.class));
+					overridePendingTransition(R.anim.tran_next_in, R.anim.tran_next_out);
 					break;
 				case 7:
 					// 高级工具

@@ -115,4 +115,14 @@
         <item name="android:background">@color/bg_tab</item>
     </style>
 
+    <style name="optimize_tv" parent="@style/auto_wrap">
+        <item name="android:padding">@dimen/size_normal</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/textSize_middle</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxEms">3</item>
+        <item name="android:gravity">left</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
 </resources>

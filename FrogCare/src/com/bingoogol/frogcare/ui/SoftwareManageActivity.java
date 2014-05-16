@@ -99,7 +99,7 @@ public class SoftwareManageActivity extends BaseActivity {
 				mAppInfo = (AppInfo) lv_software.getItemAtPosition(position);
 				Logger.i(TAG, "被点击的条目包名:" + mAppInfo.getPackname());
 				// popupwindow 类似于对话框 轻量级的activity 重量级的对话框
-				View contentView = View.inflate(getApplicationContext(), R.layout.view_software_popupwindow, null);
+				View contentView = View.inflate(mApp, R.layout.view_software_popupwindow, null);
 				contentView.findViewById(R.id.btn_software_run).setOnClickListener(SoftwareManageActivity.this);
 				contentView.findViewById(R.id.btn_software_uninstall).setOnClickListener(SoftwareManageActivity.this);
 				contentView.findViewById(R.id.btn_software_share).setOnClickListener(SoftwareManageActivity.this);
@@ -110,7 +110,7 @@ public class SoftwareManageActivity extends BaseActivity {
 
 				int[] location = new int[2];
 				view.getLocationInWindow(location);
-				mPopupWindow.showAtLocation(parent, Gravity.TOP + Gravity.LEFT, location[0] + DensityUtil.dip2px(getApplicationContext(), 60), location[1]);
+				mPopupWindow.showAtLocation(parent, Gravity.TOP + Gravity.LEFT, location[0] + DensityUtil.dip2px(mApp, 60), location[1]);
 
 				ScaleAnimation sa = new ScaleAnimation(0.5f, 1.1f, 0.5f, 1.1f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 				sa.setDuration(500);
@@ -199,7 +199,7 @@ public class SoftwareManageActivity extends BaseActivity {
 
 			@Override
 			protected Void doInBackground(Void... params) {
-				List<AppInfo> appInfos = AppInfoProvider.getAppInfos(getApplicationContext());
+				List<AppInfo> appInfos = AppInfoProvider.getAppInfos(mApp);
 				mUserAppInfos = new ArrayList<AppInfo>();
 				mSystemAppInfos = new ArrayList<AppInfo>();
 				for (AppInfo info : appInfos) {
@@ -329,13 +329,13 @@ public class SoftwareManageActivity extends BaseActivity {
 			View view = null;
 			ViewHolder holder;
 			if (position == 0) {// 第0个位置的条目. 显示一个textview
-				TextView tv = (TextView) View.inflate(getApplicationContext(), R.layout.view_list_title, null);
+				TextView tv = (TextView) View.inflate(mApp, R.layout.view_list_title, null);
 				tv.setText(getString(R.string.user_software_tips) + mUserAppInfos.size());
 				return tv;
 			} else if (position == (mUserAppInfos.size() + 1)) {
 				// 第2个textview 显示
 				// 有多少个系统程序
-				TextView tv = (TextView) View.inflate(getApplicationContext(), R.layout.view_list_title, null);
+				TextView tv = (TextView) View.inflate(mApp, R.layout.view_list_title, null);
 				tv.setText(getString(R.string.system_software_tips) + mSystemAppInfos.size());
 				return tv;
 			} else if (position <= mUserAppInfos.size()) {
@@ -354,7 +354,7 @@ public class SoftwareManageActivity extends BaseActivity {
 				view = convertView;
 				holder = (ViewHolder) view.getTag();
 			} else {
-				view = View.inflate(getApplicationContext(), R.layout.item_software, null);
+				view = View.inflate(mApp, R.layout.item_software, null);
 				holder = new ViewHolder();
 				holder.iv_software_icon = (ImageView) view.findViewById(R.id.iv_software_icon);
 				holder.tv_software_name = (TextView) view.findViewById(R.id.tv_software_name);

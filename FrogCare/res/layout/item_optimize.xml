@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/match_wrap"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/tv_app_name"
+        style="@style/optimize_tv"
+        android:text="@string/app_name" />
+
+    <TextView
+        android:id="@+id/tv_code_size"
+        style="@style/optimize_tv"
+        android:text="@string/code_size" />
+
+    <TextView
+        android:id="@+id/tv_data_size"
+        style="@style/optimize_tv"
+        android:text="@string/data_size" />
+
+</LinearLayout>

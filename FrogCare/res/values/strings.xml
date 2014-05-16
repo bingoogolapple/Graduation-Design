@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">青蛙卫士</string>
+    <string name="app_name">应用名称</string>
     <string name="exit_tips">再按一次退出程序</string>
     <string name="operate_prompt">操作提示</string>
     <string name="upgrade_now">立即更新</string>
@@ -80,5 +80,9 @@
     <string name="virus_number_tips">发现病毒个数：</string>
     <string name="is_kill_virus">\n是否立即查杀？</string>
     <string name="kill">查杀</string>
+    <string name="system_optimize">系统优化</string>
+    <string name="data_size">数据大小</string>
+    <string name="cache_size">缓存大小</string>
+    <string name="code_size">程序大小</string>
 
 </resources>

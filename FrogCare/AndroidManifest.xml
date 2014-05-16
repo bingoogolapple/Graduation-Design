@@ -86,6 +86,9 @@
         <activity
             android:name="com.bingoogol.frogcare.ui.VirusActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bingoogol.frogcare.ui.OptimizeActivity"
+            android:screenOrientation="portrait" />
 
         <service
             android:name="com.bingoogol.frogcare.service.WatchDogService"

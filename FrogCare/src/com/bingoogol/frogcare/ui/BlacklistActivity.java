@@ -17,7 +17,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bingoogol.frogcare.R;
@@ -81,7 +80,7 @@ public class BlacklistActivity extends BaseActivity {
 						if (mPagenumber > mTotalPageNumber) {
 							ToastUtil.makeText(mApp, R.string.not_have_more_data);
 							// TextView tv = new
-							// TextView(getApplicationContext());
+							// TextView(mApp);
 							// tv.setText("没有了...");
 							// lv_callsms_safe.addFooterView(tv);
 							// lv_callsms_safe.setAdapter(adapter);
@@ -178,12 +177,12 @@ public class BlacklistActivity extends BaseActivity {
 			View view = null;
 			ViewHolder holder = null;
 			// 减少 布局文件转化成view对象的次数 减少了对象的创建
-			if (convertView != null && convertView instanceof RelativeLayout) {
+			if (convertView != null) {
 				view = convertView;
 				holder = (ViewHolder) view.getTag();
 			} else {
 				// Log.i(TAG, "创建新的view对象:" + position);
-				view = View.inflate(getApplicationContext(), R.layout.item_blacklist, null);
+				view = View.inflate(mApp, R.layout.item_blacklist, null);
 				// 2减少孩子控件的查找次数
 				holder = new ViewHolder();// 创建一个容器 容器 存放孩子id的引用.
 				holder.tv_mode = (TextView) view.findViewById(R.id.tv_mode);

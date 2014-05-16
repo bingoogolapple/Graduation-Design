@@ -81,7 +81,7 @@ public class ApplockActivity extends BaseActivity {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				Animation an = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.appitem_remove_unlock);
+				Animation an = AnimationUtils.loadAnimation(mApp, R.anim.appitem_remove_unlock);
 				view.startAnimation(an);
 				removeUnlock(position);
 			}
@@ -90,7 +90,7 @@ public class ApplockActivity extends BaseActivity {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				Animation an = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.appitem_remove_locked);
+				Animation an = AnimationUtils.loadAnimation(mApp, R.anim.appitem_remove_locked);
 				view.startAnimation(an);
 				removeLocked(position);
 			}
@@ -274,7 +274,7 @@ public class ApplockActivity extends BaseActivity {
 				view = convertView;
 				holder = (ViewHolder) view.getTag();
 			} else {
-				view = View.inflate(getApplicationContext(), R.layout.item_applock, null);
+				view = View.inflate(mApp, R.layout.item_applock, null);
 				holder = new ViewHolder();
 				holder.iv_item_applock_icon = (ImageView) view.findViewById(R.id.iv_item_applock_icon);
 				holder.tv_item_applock_name = (TextView) view.findViewById(R.id.tv_item_applock_name);
