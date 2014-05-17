@@ -8,6 +8,7 @@ import com.bingoogol.frogcare.ui.fragment.AdvanceToolCallback;
 import com.bingoogol.frogcare.ui.fragment.AdvanceToolFragment;
 import com.bingoogol.frogcare.ui.fragment.AttributionFragment;
 import com.bingoogol.frogcare.ui.fragment.CommonNumberFragment;
+import com.bingoogol.frogcare.util.Logger;
 
 public class AdvanceToolActivity extends BaseActivity implements AdvanceToolCallback {
 	private static final String TAG = "AdvanceToolActivity";
@@ -34,6 +35,7 @@ public class AdvanceToolActivity extends BaseActivity implements AdvanceToolCall
 			mAttributionFragment = new AttributionFragment();
 			mCommonNumberFragment = new CommonNumberFragment();
 		} else {
+			Logger.i(TAG, "恢复状态");
 			mToolType = savedInstanceState.getInt("mToolType");
 		}
 		changeFragment(mToolType);
@@ -65,5 +67,14 @@ public class AdvanceToolActivity extends BaseActivity implements AdvanceToolCall
 		}
 		ft.commit();
 		mToolType = toolType;
+	}
+
+	@Override
+	public void onBackPressed() {
+		if (mToolType != ADVANCE_TOOL) {
+			changeFragment(ADVANCE_TOOL);
+		} else {
+			super.onBackPressed();
+		}
 	}
 }

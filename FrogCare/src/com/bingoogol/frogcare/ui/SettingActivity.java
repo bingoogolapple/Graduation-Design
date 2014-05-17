@@ -8,6 +8,7 @@ import com.bingoogol.frogcare.R;
 import com.bingoogol.frogcare.service.WatchDogService;
 import com.bingoogol.frogcare.ui.view.SettingView;
 import com.bingoogol.frogcare.util.Constants;
+import com.bingoogol.frogcare.util.Logger;
 import com.bingoogol.frogcare.util.ServiceStatusUtils;
 import com.bingoogol.frogcare.util.SpUtil;
 
@@ -40,6 +41,7 @@ public class SettingActivity extends BaseActivity {
 		if (ServiceStatusUtils.isServiceRunning(mApp, WatchDogService.class.getName())) {
 			SpUtil.putBoolean(Constants.spkey.APPLOCK, true);
 			sv_setting_applock.setChecked(true);
+			Logger.i(TAG, "开启程序锁");
 		} else {
 			SpUtil.putBoolean(Constants.spkey.APPLOCK, false);
 			sv_setting_applock.setChecked(false);

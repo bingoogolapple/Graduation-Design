@@ -13,27 +13,22 @@
             android:text="@string/advance_tool" />
     </LinearLayout>
 
-    <ScrollView
+    <LinearLayout
         style="@style/match_match"
         android:layout_margin="@dimen/size_normal"
         android:background="@color/bg_black"
-        android:scrollbars="none" >
+        android:orientation="vertical" >
 
-        <LinearLayout
-            style="@style/match_wrap"
-            android:orientation="vertical" >
+        <Button
+            android:id="@+id/btn_attribution"
+            style="@style/advance_tool_item"
+            android:layout_marginBottom="@dimen/size_divider"
+            android:text="@string/phone_number_attribution_query" />
 
-            <Button
-                android:id="@+id/btn_attribution"
-                style="@style/advance_tool_item"
-                android:layout_marginBottom="@dimen/size_divider"
-                android:text="@string/phone_number_attribution_query" />
-
-            <Button
-                android:id="@+id/btn_common_number"
-                style="@style/advance_tool_item"
-                android:text="@string/common_number_query" />
-        </LinearLayout>
-    </ScrollView>
+        <Button
+            android:id="@+id/btn_common_number"
+            style="@style/advance_tool_item"
+            android:text="@string/common_number_query" />
+    </LinearLayout>
 
 </LinearLayout>

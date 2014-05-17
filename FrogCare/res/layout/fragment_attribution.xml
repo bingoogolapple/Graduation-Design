@@ -29,7 +29,6 @@
             android:layout_marginBottom="@dimen/size_large"
             android:gravity="center"
             android:singleLine="true"
-            android:text="重庆"
             android:textColor="@android:color/white"
             android:textSize="@dimen/textSize_large_large" />
 

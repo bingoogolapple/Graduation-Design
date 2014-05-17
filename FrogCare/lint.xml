@@ -7,4 +7,5 @@
     <issue id="UseCompoundDrawables">
         <ignore path="res/layout/activity_main.xml" />
     </issue>
+    <issue id="UseSparseArrays" severity="ignore" />
 </lint>

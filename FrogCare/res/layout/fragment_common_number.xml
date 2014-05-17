@@ -17,4 +17,15 @@
             android:text="@string/common_number_query" />
     </LinearLayout>
 
+    <ExpandableListView
+        android:id="@+id/elv_number"
+        style="@style/match_match"
+        android:layout_margin="@dimen/size_normal"
+        android:background="@color/bg_black"
+        android:divider="@color/divider"
+        android:dividerHeight="@dimen/size_divider"
+        android:cacheColorHint="@android:color/transparent"
+        android:listSelector="@drawable/bg_item_common_selector" >
+    </ExpandableListView>
+
 </LinearLayout>

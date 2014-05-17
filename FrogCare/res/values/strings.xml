@@ -89,5 +89,6 @@
     <string name="common_number_query">常用号码查询</string>
     <string name="query">查询</string>
     <string name="please_input_phone_number">请输入手机号码</string>
+    <string name="phone_number_not_allow_null">手机号不能为空</string>
 
 </resources>
