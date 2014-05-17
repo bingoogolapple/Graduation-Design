@@ -27,12 +27,17 @@
     <dimen name="item_main_root_padding">28dp</dimen>
     <!-- 主页 END -->
     <!-- 设置中心 START -->
-
+    <dimen name="view_setting_status_width">70dp</dimen>
+    <dimen name="view_setting_status_height">40dp</dimen>
 
     <!-- 设置中心 END -->
 
-    <dimen name="applock_auth_ok_size">120dp</dimen>
+
+    <!-- 程序锁 START -->
     <dimen name="applock_auth_pwd_width">240dp</dimen>
     <dimen name="applock_auth_ok_marginTop">50dp</dimen>
+    <!-- 程序锁 END -->
+    <dimen name="btn_circle_size">120dp</dimen>
+    <dimen name="et_attribution_number_width">200dp</dimen>
 
 </resources>

@@ -4,11 +4,7 @@
     android:background="@color/bg_root_black"
     android:orientation="vertical" >
 
-    <LinearLayout
-        style="@style/match_wrap"
-        android:background="@color/bg_title_top"
-        android:gravity="center_vertical"
-        android:orientation="horizontal" >
+    <LinearLayout style="@style/title_top_ll" >
 
         <Button
             android:layout_width="@dimen/size_icon_normal"
@@ -16,10 +12,8 @@
             android:background="@drawable/title_logo" />
 
         <TextView
-            style="@style/wrap_wrap"
-            android:gravity="center_vertical"
-            android:text="@string/app_name"
-            android:textSize="@dimen/textSize_large" />
+            style="@style/title_top_tv"
+            android:text="@string/app_name" />
     </LinearLayout>
 
     <LinearLayout

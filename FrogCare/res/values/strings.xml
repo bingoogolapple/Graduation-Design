@@ -84,5 +84,10 @@
     <string name="data_size">数据大小</string>
     <string name="cache_size">缓存大小</string>
     <string name="code_size">程序大小</string>
+    <string name="advance_tool">高级工具</string>
+    <string name="phone_number_attribution_query">手机号码归属地查询</string>
+    <string name="common_number_query">常用号码查询</string>
+    <string name="query">查询</string>
+    <string name="please_input_phone_number">请输入手机号码</string>
 
 </resources>

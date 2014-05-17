@@ -22,8 +22,8 @@
 
     <ImageView
         android:id="@+id/iv_view_setting_status"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
+        android:layout_width="@dimen/view_setting_status_width"
+        android:layout_height="@dimen/view_setting_status_height"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:src="@drawable/setting_on" />

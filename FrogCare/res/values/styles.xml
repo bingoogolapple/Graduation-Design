@@ -125,4 +125,23 @@
         <item name="android:ellipsize">end</item>
     </style>
 
+    <style name="title_top_ll" parent="@style/match_wrap">
+        <item name="android:background">@color/bg_title_top</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="title_top_tv" parent="@style/wrap_wrap">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/textSize_large</item>
+    </style>
+
+    <style name="advance_tool_item" parent="@style/match_wrap">
+        <item name="android:background">@drawable/bg_item_common_selector</item>
+        <item name="android:padding">@dimen/size_large</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/textSize_middle</item>
+        <item name="android:gravity">left</item>
+    </style>
+
 </resources>

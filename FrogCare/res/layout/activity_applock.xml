@@ -4,19 +4,13 @@
     android:background="@color/bg_root_black"
     android:orientation="vertical" >
 
-    <LinearLayout
-        style="@style/match_wrap"
-        android:background="@color/bg_title_top"
-        android:gravity="center_vertical"
-        android:orientation="horizontal" >
+    <LinearLayout style="@style/title_top_ll" >
 
         <include layout="@layout/view_back" />
 
         <TextView
-            style="@style/wrap_wrap"
-            android:gravity="center_vertical"
-            android:text="@string/applock"
-            android:textSize="@dimen/textSize_large" />
+            style="@style/title_top_tv"
+            android:text="@string/applock" />
     </LinearLayout>
 
     <FrameLayout style="@style/match_auto" >
@@ -34,9 +28,9 @@
             <ListView
                 android:id="@+id/lv_unlock"
                 style="@style/match_match"
-                android:dividerHeight="2dp"
                 android:cacheColorHint="@android:color/transparent"
                 android:divider="@color/divider"
+                android:dividerHeight="2dp"
                 android:listSelector="@android:color/transparent" >
             </ListView>
         </LinearLayout>
@@ -55,9 +49,9 @@
             <ListView
                 android:id="@+id/lv_locked"
                 style="@style/match_match"
-                android:dividerHeight="@dimen/size_divider"
-                android:divider="@color/divider"
                 android:cacheColorHint="@android:color/transparent"
+                android:divider="@color/divider"
+                android:dividerHeight="@dimen/size_divider"
                 android:listSelector="@android:color/transparent" >
             </ListView>
         </LinearLayout>

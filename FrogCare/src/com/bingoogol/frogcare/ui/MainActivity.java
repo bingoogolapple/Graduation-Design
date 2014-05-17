@@ -86,6 +86,8 @@ public class MainActivity extends BaseActivity {
 					break;
 				case 7:
 					// 高级工具
+					startActivity(new Intent(mApp, AdvanceToolActivity.class));
+					overridePendingTransition(R.anim.tran_next_in, R.anim.tran_next_out);
 					break;
 				case 8:
 					// 设置中心

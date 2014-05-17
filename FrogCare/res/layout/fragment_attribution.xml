@@ -4,55 +4,57 @@
     android:background="@color/bg_root_black"
     android:orientation="vertical" >
 
-    <TextView
-        style="@style/match_wrap"
-        android:background="@color/bg_title_top"
-        android:gravity="center"
-        android:padding="@dimen/size_large"
-        android:text="@string/auth_applockpwd"
-        android:textSize="@dimen/textSize_large" />
+    <LinearLayout style="@style/title_top_ll" >
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="@dimen/size_icon_normal"
+            android:layout_height="@dimen/size_icon_normal"
+            android:background="@drawable/btn_back_selector" />
+
+        <TextView
+            style="@style/title_top_tv"
+            android:text="@string/phone_number_attribution_query" />
+    </LinearLayout>
 
     <LinearLayout
         style="@style/match_match"
         android:gravity="center"
         android:orientation="vertical" >
 
-        <ImageView
-            android:id="@+id/iv_applock_auth_icon"
-            android:layout_width="@dimen/size_icon_large"
-            android:layout_height="@dimen/size_icon_large"
-            android:src="@drawable/ic_launcher" />
-
         <TextView
-            android:id="@+id/tv_applock_auth_name"
+            android:id="@+id/tv_result"
             style="@style/wrap_wrap"
             android:layout_margin="@dimen/size_large"
+            android:layout_marginBottom="@dimen/size_large"
             android:gravity="center"
             android:singleLine="true"
-            android:text="青蛙卫士"
+            android:text="重庆"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/textSize_middle" />
+            android:textSize="@dimen/textSize_large_large" />
 
         <EditText
-            android:id="@+id/et_applock_auth_pwd"
-            android:layout_width="@dimen/applock_auth_pwd_width"
+            android:id="@+id/et_number"
+            android:layout_width="@dimen/et_attribution_number_width"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/size_large"
+            android:layout_marginTop="@dimen/size_large"
             android:background="@drawable/textfield_pressed"
-            android:hint="@string/please_input_applockpwd"
-            android:inputType="textPassword"
+            android:hint="@string/please_input_phone_number"
+            android:inputType="phone"
             android:singleLine="true"
             android:textColor="@android:color/white"
             android:textSize="@dimen/textSize_small" >
         </EditText>
 
         <Button
-            android:id="@+id/btn_applock_auth_ok"
+            android:id="@+id/btn_query"
             android:layout_width="@dimen/btn_circle_size"
             android:layout_height="@dimen/btn_circle_size"
-            android:layout_marginTop="@dimen/applock_auth_ok_marginTop"
+            android:layout_marginTop="@dimen/size_large"
             android:background="@drawable/btn_circle_selector"
             android:padding="@dimen/size_large"
-            android:text="@string/ok"
+            android:text="@string/query"
             android:textColor="@color/text_gray"
             android:textSize="@dimen/textSize_large_large" />
     </LinearLayout>
