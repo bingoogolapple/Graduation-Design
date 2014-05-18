@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/match_match"
     android:background="@color/bg_root_black" >
 
-    <RelativeLayout style="@style/match_match" >
+    <TextView
+        android:id="@+id/tv_splash_versionName"
+        style="@style/wrap_wrap"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/size_large"
+        android:layout_marginTop="@dimen/size_large"
+        android:text="Version 1.0"
+        android:textSize="@dimen/textSize_middle" />
 
-        <ImageView
-            android:id="@+id/iv_rocket"
-            style="@style/wrap_wrap"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/rocket" />
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/tv_app_name"
+        style="@style/wrap_wrap"
+        android:layout_above="@id/tv_splash_versionName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/size_large"
+        android:layout_marginTop="@dimen/size_large"
+        android:text="@string/app_name"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/textSize_large" />
 
-    <LinearLayout
-        style="@style/match_match"
-        android:gravity="center"
-        android:orientation="vertical" >
+    <ImageView
+        android:id="@+id/iv_rocket"
+        style="@style/wrap_wrap"
+        android:layout_above="@id/tv_app_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/size_large"
+        android:src="@drawable/rocket" />
 
-        <TextView
-            style="@style/wrap_wrap"
-            android:text="青蛙卫士"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/textSize_large" />
-
-        <TextView
-            android:id="@+id/tv_splash_versionName"
-            style="@style/wrap_wrap"
-            android:layout_marginTop="20dp"
-            android:text="v1.0"
-            android:textSize="@dimen/textSize_small" />
-    </LinearLayout>
-
-</FrameLayout>
+</RelativeLayout>

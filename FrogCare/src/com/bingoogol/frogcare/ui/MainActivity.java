@@ -27,7 +27,6 @@ public class MainActivity extends BaseActivity {
 	private String[] functionNames;
 	private static TextView tv_item_main_content;
 	private long[] mClickMenuHits = new long[3];
-	private OpreateType mOpreateType = OpreateType.APP_LOCK;
 
 	@Override
 	protected void initView() {
@@ -52,52 +51,44 @@ public class MainActivity extends BaseActivity {
 				case 0:
 					// 手机防盗
 					// 检查用户是否设置过密码
-
+					openActivity(TheftActivity.class);
 					break;
 				case 1:
 					// 通讯卫士
-					startActivity(new Intent(mApp, BlacklistActivity.class));
-					overridePendingTransition(R.anim.tran_next_in, R.anim.tran_next_out);
+					openActivity(BlacklistActivity.class);
 					break;
 				case 2:
 					// 软件管理
-					startActivity(new Intent(mApp, SoftwareManageActivity.class));
-					overridePendingTransition(R.anim.tran_next_in, R.anim.tran_next_out);
+					openActivity(SoftwareManageActivity.class);
 					break;
 				case 3:
 					// 进程管理
-					startActivity(new Intent(mApp, ProcessManageActivity.class));
-					overridePendingTransition(R.anim.tran_next_in, R.anim.tran_next_out);
+					openActivity(ProcessManageActivity.class);
 					break;
 				case 4:
 					// 隐私保护
-					mOpreateType = OpreateType.APP_LOCK;
-					auth();
+					openActivity(ApplockActivity.class);
 					break;
 				case 5:
 					// 手机杀毒
-					startActivity(new Intent(mApp, VirusActivity.class));
-					overridePendingTransition(R.anim.tran_next_in, R.anim.tran_next_out);
+					openActivity(VirusActivity.class);
 					break;
 				case 6:
 					// 系统优化
-					startActivity(new Intent(mApp, OptimizeActivity.class));
-					overridePendingTransition(R.anim.tran_next_in, R.anim.tran_next_out);
+					openActivity(OptimizeActivity.class);
 					break;
 				case 7:
 					// 高级工具
-					startActivity(new Intent(mApp, AdvanceToolActivity.class));
-					overridePendingTransition(R.anim.tran_next_in, R.anim.tran_next_out);
+					openActivity(AdvanceToolActivity.class);
 					break;
 				case 8:
 					// 设置中心
-					mOpreateType = OpreateType.SETTING_CENTER;
-					auth();
+					openActivity(SettingActivity.class);
 					break;
 				}
 			}
-
 		});
+		auth();
 	}
 
 	private void auth() {
@@ -140,16 +131,6 @@ public class MainActivity extends BaseActivity {
 				String appLockPwd = pd.getContent();
 				if (appLockPwd.equals(SpUtil.getString(Constants.spkey.APPLOCK_PWD, ""))) {
 					pd.dismiss();
-					switch (mOpreateType) {
-					case SETTING_CENTER:
-						startActivity(new Intent(mApp, SettingActivity.class));
-						overridePendingTransition(R.anim.tran_next_in, R.anim.tran_next_out);
-						break;
-					case APP_LOCK:
-						startActivity(new Intent(mApp, ApplockActivity.class));
-						overridePendingTransition(R.anim.tran_next_in, R.anim.tran_next_out);
-						break;
-					}
 				} else {
 					ToastUtil.makeText(mApp, R.string.pwd_error_tips);
 				}
@@ -157,9 +138,15 @@ public class MainActivity extends BaseActivity {
 
 			@Override
 			public void onClickLeft() {
+				mApp.exit();
 			}
 		});
 		pd.show();
+	}
+
+	private void openActivity(Class<?> cls) {
+		startActivity(new Intent(mApp, cls));
+		overridePendingTransition(R.anim.tran_next_in, R.anim.tran_next_out);
 	}
 
 	private void showEnterOldAppLockPasswordDialog() {
@@ -242,6 +229,6 @@ public class MainActivity extends BaseActivity {
 	}
 
 	protected enum OpreateType {
-		APP_LOCK, SETTING_CENTER
+		APP_LOCK, SETTING_CENTER, THEFT
 	}
 }

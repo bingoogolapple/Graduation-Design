@@ -44,6 +44,9 @@ public final class Constants {
 		public static final String AUTO_UPGRADE = "autoupgrade";
 		public static final String APPLOCK_PWD = "applockpwd";
 		public static final String APPLOCK = "applock";
+		public static final String SAFE_PHONE_NUMBER = "safephonenumber";
+		public static final String ALARM_COMMAND = "alarmcommand";
+		public static final String REMOTE_THEFT_COMMAND = "remotetheftcommand";
 	}
 
 	public static final class dbname {

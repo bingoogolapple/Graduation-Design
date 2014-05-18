@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/match_match"
+    android:background="@color/bg_root_black"
+    android:orientation="vertical" >
+
+    <LinearLayout style="@style/title_top_ll" >
+
+        <include layout="@layout/view_back" />
+
+        <TextView
+            style="@style/title_top_tv"
+            android:text="@string/phone_theft" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/match_match"
+        android:layout_margin="@dimen/size_normal"
+        android:background="@color/bg_black"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btn_bind_phone"
+            style="@style/advance_tool_item"
+            android:layout_marginBottom="@dimen/size_divider"
+            android:text="@string/bind_safe_phone_number" />
+
+        <Button
+            android:id="@+id/btn_set_alarm_command"
+            style="@style/advance_tool_item"
+            android:layout_marginBottom="@dimen/size_divider"
+            android:text="@string/set_alarm_command" />
+
+        <Button
+            android:id="@+id/btn_set_remote_theft_command"
+            style="@style/advance_tool_item"
+            android:text="@string/set_remote_theft_command" />
+    </LinearLayout>
+
+</LinearLayout>

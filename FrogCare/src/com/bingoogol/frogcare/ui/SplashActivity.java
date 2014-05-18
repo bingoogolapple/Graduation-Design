@@ -11,6 +11,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
@@ -37,6 +39,7 @@ public class SplashActivity extends BaseActivity {
 	private String mVersionName;
 
 	private PDialog mPDialog;
+	private boolean mIsLoadMainActivity = false;
 
 	@Override
 	protected void initView() {
@@ -49,8 +52,26 @@ public class SplashActivity extends BaseActivity {
 
 	@Override
 	protected void afterViews(Bundle savedInstanceState) {
-		((TextView) findViewById(R.id.tv_splash_versionName)).setText(mApp.getCurrentVersionName());
-		findViewById(R.id.iv_rocket).startAnimation(AnimationUtils.loadAnimation(mApp, R.anim.rocket));
+		((TextView) findViewById(R.id.tv_splash_versionName)).setText("Version " + mApp.getCurrentVersionName());
+		Animation rocket = AnimationUtils.loadAnimation(mApp, R.anim.rocket);
+		rocket.setAnimationListener(new AnimationListener() {
+
+			@Override
+			public void onAnimationStart(Animation animation) {
+			}
+
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+			}
+
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				if (mIsLoadMainActivity) {
+					loadMainActivity();
+				}
+			}
+		});
+		findViewById(R.id.iv_rocket).startAnimation(rocket);
 		copyDB(Constants.dbname.ADDRESS);
 		copyDB(Constants.dbname.ANTIVIRUS);
 		copyDB(Constants.dbname.COMMONNUM);
@@ -85,7 +106,7 @@ public class SplashActivity extends BaseActivity {
 				}
 			});
 		} else {
-			loadMainActivityDelay();
+			mIsLoadMainActivity = true;
 		}
 	}
 

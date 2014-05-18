@@ -90,5 +90,15 @@
     <string name="query">查询</string>
     <string name="please_input_phone_number">请输入手机号码</string>
     <string name="phone_number_not_allow_null">手机号不能为空</string>
+    <string name="phone_theft">手机防盗</string>
+    <string name="bind_safe_phone_number">绑定安全手机号码</string>
+    <string name="set_alarm_command">设置报警指令</string>
+    <string name="please_input_safe_number">请输入安全手机号码</string>
+    <string name="safe_number_not_allow_null">安全手机号码不能为空</string>
+    <string name="please_input_alarm_command">请输入报警指令</string>
+    <string name="alarm_command_not_allow_null">报警指令不能为空</string>
+    <string name="set_remote_theft_command">设置远程开启防盗指令</string>
+    <string name="please_input_remote_theft_command">请输入远程开启防盗指令</string>
+    <string name="remote_theft_command_not_allow_null">远程开启防盗指令不能为空</string>
 
 </resources>
