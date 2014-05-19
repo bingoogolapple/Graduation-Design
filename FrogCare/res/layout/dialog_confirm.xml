@@ -4,10 +4,14 @@
     android:layout_height="wrap_content"
     android:background="@drawable/bg_dialog"
     android:orientation="vertical" >
+
     <TextView
         android:id="@+id/tv_dialog_confirm_title"
         style="@style/dialog_title"
-        android:text="Title"/>
+        android:text="Title" />
+
+    <ImageView style="@style/line_icon" />
+
     <TextView
         android:id="@+id/tv_dialog_confirm_msg"
         style="@style/match_wrap"
@@ -16,17 +20,20 @@
         android:text="Message"
         android:textColor="@color/text_gray_dialog"
         android:textSize="@dimen/textSize_small" />
-    <LinearLayout
-        style="@style/match_wrap" >
+
+    <LinearLayout style="@style/match_wrap" >
+
         <Button
             android:id="@+id/btn_dialog_confirm_left"
             style="@style/dialog_btn"
             android:background="@drawable/btn_gray_selector"
             android:text="Left" />
+
         <Button
             android:id="@+id/btn_dialog_comfirm_right"
             style="@style/dialog_btn"
             android:background="@drawable/btn_blue_selector"
             android:text="Right" />
     </LinearLayout>
+
 </LinearLayout>

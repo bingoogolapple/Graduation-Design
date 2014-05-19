@@ -47,6 +47,11 @@ public final class Constants {
 		public static final String SAFE_PHONE_NUMBER = "safephonenumber";
 		public static final String ALARM_COMMAND = "alarmcommand";
 		public static final String REMOTE_THEFT_COMMAND = "remotetheftcommand";
+		public static final String BLACKLIST = "blacklist";
+		public static final String ATTRIBUTION = "attribution";
+		public static final String LAST_LOCATION = "lastlocation";
+		public static final String ATTRIBUTION_LAST_X = "attribution_last_x";
+		public static final String ATTRIBUTION_LAST_Y = "attribution_last_y";
 	}
 
 	public static final class dbname {

@@ -96,14 +96,54 @@
             android:name="com.bingoogol.frogcare.ui.TheftActivity"
             android:screenOrientation="portrait" />
 
-        <service
-            android:name="com.bingoogol.frogcare.service.WatchDogService"
-            android:description="@string/applock_description"
-            android:label="@string/applock" />
+        <service android:name="com.bingoogol.frogcare.service.ApplockService" />
+        <service android:name="com.bingoogol.frogcare.service.ProcessWidgetService" />
+        <service android:name="com.bingoogol.frogcare.service.PhoneLocationService" />
+        <service android:name="com.bingoogol.frogcare.service.BlacklistInterceptService" />
+        <service android:name="com.bingoogol.frogcare.service.AttributionService" />
 
+        <receiver android:name="com.bingoogol.frogcare.receiver.TheftReceiver" >
+            <intent-filter android:priority="1000" >
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
         <receiver android:name="com.bingoogol.frogcare.receiver.BootCompleteReceiver" >
             <intent-filter android:priority="1000" >
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.bingoogol.frogcare.receiver.OutCallReceiver" >
+
+            <!-- 优先级1000,优先接收到广播事件 -->
+            <intent-filter android:priority="1000" >
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.bingoogol.frogcare.receiver.ProcessWidgetReceiver" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/process_widget_info" />
+        </receiver>
+        <receiver android:name="com.bingoogol.frogcare.receiver.KillBgProcessReceiver" >
+            <intent-filter>
+                <action android:name="com.bingoogol.killallbgprocess" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.bingoogol.frogcare.receiver.MyAdminReceiver"
+            android:description="@string/device_admin_description"
+            android:label="@string/device_admin_label"
+            android:permission="android.permission.BIND_DEVICE_ADMIN" >
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin" />
+
+            <intent-filter android:priority="1000" >
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
             </intent-filter>
         </receiver>
     </application>

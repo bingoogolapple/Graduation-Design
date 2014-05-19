@@ -98,6 +98,11 @@
         <item name="android:button">@drawable/radio_selector</item>
     </style>
     <!-- Dialog END -->
+    <style name="line_icon" parent="@style/wrap_wrap">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:src">@drawable/dialog_divider</item>
+    </style>
+
     <style name="list_title" parent="@style/match_wrap">
         <item name="android:background">@color/bg_black</item>
         <item name="android:gravity">center_vertical</item>

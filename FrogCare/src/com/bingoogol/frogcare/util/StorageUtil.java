@@ -2,6 +2,8 @@ package com.bingoogol.frogcare.util;
 
 import java.io.File;
 
+import android.app.ActivityManager;
+import android.app.ActivityManager.MemoryInfo;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
@@ -35,6 +37,7 @@ public class StorageUtil {
 		}
 		return downloadDir;
 	}
+
 	/**
 	 * 获取手机重启后拍摄照片的存储目录
 	 * 
@@ -115,5 +118,18 @@ public class StorageUtil {
 	public static boolean isSaveable(Context context, int contentLength) {
 		long avaliable = getAvailableSize(context);
 		return avaliable > contentLength ? true : false;
+	}
+
+	/**
+	 * 获取可用内存空间
+	 * 
+	 * @param context
+	 * @return long byte 单位 大小
+	 */
+	@SuppressWarnings("static-access")
+	public static long getAvailMemSize(Context context) {
+		MemoryInfo memoryInfo = new MemoryInfo();
+		((ActivityManager) context.getSystemService(context.ACTIVITY_SERVICE)).getMemoryInfo(memoryInfo);
+		return memoryInfo.availMem;
 	}
 }

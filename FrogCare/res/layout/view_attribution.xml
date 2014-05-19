@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/wrap_wrap"
+    android:background="@drawable/bg_dialog"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="@dimen/size_normal" >
+
+    <ImageView
+        android:layout_width="@dimen/size_icon_normal"
+        android:layout_height="@dimen/size_icon_normal"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tv_attribution"
+        style="@style/wrap_wrap"
+        android:layout_marginLeft="@dimen/size_normal"
+        android:padding="@dimen/size_normal"
+        android:text="重庆"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/textSize_middle" />
+
+</LinearLayout>

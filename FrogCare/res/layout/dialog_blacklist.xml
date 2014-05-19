@@ -10,6 +10,8 @@
         android:background="@android:color/transparent"
         android:text="@string/add_blacklist_number" />
 
+    <ImageView style="@style/line_icon" />
+
     <EditText
         android:id="@+id/et_number"
         style="@style/dialog_et"

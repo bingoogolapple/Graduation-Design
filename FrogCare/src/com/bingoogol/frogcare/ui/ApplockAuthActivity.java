@@ -13,8 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bingoogol.frogcare.R;
-import com.bingoogol.frogcare.service.WatchDogService;
-import com.bingoogol.frogcare.service.WatchDogService.WatchDogCallback;
+import com.bingoogol.frogcare.service.ApplockService;
+import com.bingoogol.frogcare.service.ApplockService.WatchDogCallback;
 import com.bingoogol.frogcare.util.Constants;
 import com.bingoogol.frogcare.util.Logger;
 import com.bingoogol.frogcare.util.SpUtil;
@@ -53,7 +53,7 @@ public class ApplockAuthActivity extends BaseActivity {
 			Logger.e(TAG, "获取应用信息失败" + e.getMessage());
 		}
 		mMyConn = new MyConn();
-		bindService(new Intent(mApp, WatchDogService.class), mMyConn, BIND_AUTO_CREATE);
+		bindService(new Intent(mApp, ApplockService.class), mMyConn, BIND_AUTO_CREATE);
 	}
 
 	@Override

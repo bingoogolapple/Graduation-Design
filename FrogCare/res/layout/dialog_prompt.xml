@@ -10,6 +10,8 @@
         style="@style/dialog_title"
         android:text="Title" />
 
+    <ImageView style="@style/line_icon" />
+
     <EditText
         android:id="@+id/et_dialog_prompt_content"
         style="@style/dialog_et"

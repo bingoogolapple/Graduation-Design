@@ -20,8 +20,14 @@ import com.bingoogol.frogcare.ui.ApplockAuthActivity;
 import com.bingoogol.frogcare.util.Constants;
 import com.bingoogol.frogcare.util.Logger;
 
-public class WatchDogService extends Service {
-	private static final String TAG = "WatchDogService";
+/**
+ * 程序锁服务
+ * 
+ * @author bingoogol@sina.com
+ * 
+ */
+public class ApplockService extends Service {
+	private static final String TAG = "ApplockService";
 	private AppLockDao mAppLockDao;
 	private boolean mIsWatching;
 	private List<String> mTempStopProtectPackageNames;

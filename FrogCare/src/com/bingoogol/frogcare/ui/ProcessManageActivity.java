@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.ActivityManager;
-import android.app.ActivityManager.MemoryInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.format.Formatter;
@@ -29,6 +28,7 @@ import com.bingoogol.frogcare.domain.ProcessInfo;
 import com.bingoogol.frogcare.engine.ProcessInfoProvider;
 import com.bingoogol.frogcare.ui.view.CLPDialog;
 import com.bingoogol.frogcare.util.Logger;
+import com.bingoogol.frogcare.util.StorageUtil;
 import com.bingoogol.frogcare.util.ToastUtil;
 
 public class ProcessManageActivity extends BaseActivity {
@@ -195,7 +195,7 @@ public class ProcessManageActivity extends BaseActivity {
 	@Override
 	protected void onStart() {
 		super.onStart();
-		mAvailMem = getAvailMemSize();
+		mAvailMem = StorageUtil.getAvailMemSize(mApp);
 		mRunningProcessCount = getRunningProcessCount();
 		tv_process_storage.setText(getString(R.string.running_process_tips) + mRunningProcessCount + getString(R.string.available_total_tips) + Formatter.formatFileSize(this, mAvailMem) + "/" + Formatter.formatFileSize(this, mTotalMem));
 		fillData();
@@ -247,18 +247,6 @@ public class ProcessManageActivity extends BaseActivity {
 		ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
 		List<ActivityManager.RunningAppProcessInfo> infos = am.getRunningAppProcesses();
 		return infos.size();
-	}
-
-	/**
-	 * 获取可用的内存信息
-	 * 
-	 * @return long byte 单位 大小
-	 */
-	private long getAvailMemSize() {
-		ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
-		MemoryInfo memoInfo = new MemoryInfo();
-		am.getMemoryInfo(memoInfo);
-		return memoInfo.availMem;
 	}
 
 	/**

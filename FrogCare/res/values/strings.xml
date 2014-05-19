@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">应用名称</string>
+    <string name="app_name">青蛙卫士</string>
     <string name="exit_tips">再按一次退出程序</string>
     <string name="operate_prompt">操作提示</string>
     <string name="upgrade_now">立即更新</string>
@@ -100,5 +100,14 @@
     <string name="set_remote_theft_command">设置远程开启防盗指令</string>
     <string name="please_input_remote_theft_command">请输入远程开启防盗指令</string>
     <string name="remote_theft_command_not_allow_null">远程开启防盗指令不能为空</string>
+    <string name="attribution_show">归属地显示</string>
+    <string name="attribution_show_on">归属地显示已经开启</string>
+    <string name="attribution_show_off">归属地显示已经关闭</string>
+    <string name="blacklist_intercept">黑名单拦截</string>
+    <string name="blacklist_intercept_on">黑名单拦截已经开启</string>
+    <string name="blacklist_intercept_off">黑名单拦截已经关闭</string>
+    <string name="available_memory_tips">可用内存:</string>
+    <string name="device_admin_description">青蛙卫士，更好的保护您的手机</string>
+    <string name="device_admin_label">bingo设备管理器</string>
 
 </resources>

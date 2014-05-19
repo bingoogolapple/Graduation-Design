@@ -4,6 +4,7 @@ import com.bingoogol.frogcare.R;
 import com.bingoogol.frogcare.ui.view.BtnCallback;
 import com.bingoogol.frogcare.ui.view.PromptDialog;
 import com.bingoogol.frogcare.util.Constants;
+import com.bingoogol.frogcare.util.Logger;
 import com.bingoogol.frogcare.util.SpUtil;
 import com.bingoogol.frogcare.util.ToastUtil;
 
@@ -99,6 +100,7 @@ public class TheftActivity extends BaseActivity {
 			public void onClickRight() {
 				String safePhoneNumber = pd.getContent();
 				if (TextUtils.isEmpty(safePhoneNumber)) {
+					Logger.i(TAG, safePhoneNumber);
 					ToastUtil.makeText(mApp, R.string.safe_number_not_allow_null);
 					pd.shake();
 				} else {

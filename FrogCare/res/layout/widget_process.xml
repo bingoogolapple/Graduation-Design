@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/match_wrap"
+    android:background="@drawable/bg_dialog"
+    android:gravity="center_vertical" >
+
+    <LinearLayout
+        style="@style/auto_wrap"
+        android:layout_margin="@dimen/size_normal"
+        android:background="@drawable/widget_bg"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="@dimen/size_normal" >
+
+        <TextView
+            android:id="@+id/tv_process_count"
+            style="@style/wrap_wrap"
+            android:text="@string/running_process_tips"
+            android:textColor="@color/text_gray_dialog"
+            android:textSize="@dimen/textSize_small" />
+
+        <ImageView
+            style="@style/line_icon"
+            android:layout_marginBottom="@dimen/size_normal"
+            android:layout_marginTop="@dimen/size_normal" />
+
+        <TextView
+            android:id="@+id/tv_available_memory"
+            style="@style/wrap_wrap"
+            android:text="@string/available_memory_tips"
+            android:textColor="@color/text_gray_dialog"
+            android:textSize="@dimen/textSize_small" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_clear"
+        style="@style/wrap_wrap"
+        android:layout_margin="@dimen/size_normal"
+        android:background="@drawable/btn_blue_selector"
+        android:padding="@dimen/size_normal"
+        android:text="@string/onekey_clean"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/textSize_middle" />
+
+</LinearLayout>

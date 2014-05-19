@@ -4,7 +4,7 @@
     <issue id="HandlerLeak" severity="ignore" />
     <issue id="HardcodedText" severity="ignore" />
     <issue id="SimpleDateFormat" severity="ignore" />
-    <issue id="UseCompoundDrawables">
+    <issue id="UseCompoundDrawables" severity="ignore">
         <ignore path="res/layout/activity_main.xml" />
     </issue>
     <issue id="UseSparseArrays" severity="ignore" />

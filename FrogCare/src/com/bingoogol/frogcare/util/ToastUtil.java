@@ -28,7 +28,7 @@ public class ToastUtil {
 	 */
 	public static void makeText(Context context, CharSequence text) {
 		Toast toast = new Toast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.custom_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.view_custom_toast, null);
 		TextView tv_custom_toast_msg = (TextView) view.findViewById(R.id.tv_toast_msg);
 		tv_custom_toast_msg.setText(text);
 		toast.setView(view);

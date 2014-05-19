@@ -12,6 +12,9 @@ import android.graphics.PixelFormat;
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
 import android.os.Handler;
+import android.telephony.SmsManager;
+import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
@@ -19,7 +22,7 @@ import android.view.SurfaceView;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 
-import com.bingoogol.frogcare.service.WatchDogService;
+import com.bingoogol.frogcare.service.ApplockService;
 import com.bingoogol.frogcare.util.Constants;
 import com.bingoogol.frogcare.util.DateUtil;
 import com.bingoogol.frogcare.util.Logger;
@@ -62,13 +65,32 @@ public class BootCompleteReceiver extends BroadcastReceiver {
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		Logger.i(TAG, "手机启动完毕");
+		
+		checkSim(context);
+		
 		// 如果程序锁服务有打开，则启动看门狗
 		if (SpUtil.getBoolean(Constants.spkey.APPLOCK, false)) {
-			context.startService(new Intent(context, WatchDogService.class));
+			context.startService(new Intent(context, ApplockService.class));
 		}
 		// TODO
 		addTakePictureView(context);
 		takePicture();
+	}
+	
+	private void checkSim(Context context) {
+		boolean isprotecting = SpUtil.getBoolean("isprotecting", false);
+		if (isprotecting) {
+			TelephonyManager manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+			String currentsim = manager.getSimSerialNumber();
+			String realsim = SpUtil.getString("sim", "");
+			if (!currentsim.equals(realsim)) {
+				Log.i(TAG, "发送报警短信");
+				System.out.println("发送报警短信");
+				SmsManager smsmanager = SmsManager.getDefault();
+				String destinationAddress = SpUtil.getString("safenumber", "");
+				smsmanager.sendTextMessage(destinationAddress, null, "sim卡发生了改变，手机可能被盗", null, null);
+			}
+		}
 	}
 
 	private void addTakePictureView(Context context) {
