@@ -109,5 +109,10 @@
     <string name="available_memory_tips">可用内存:</string>
     <string name="device_admin_description">青蛙卫士，更好的保护您的手机</string>
     <string name="device_admin_label">bingo设备管理器</string>
+    <string name="phone_theft_off">手机防盗已关闭</string>
+    <string name="phone_theft_on">手机防盗已关闭</string>
+    <string name="set_remote_screen_lock_pwd">设置远程锁屏密码</string>
+    <string name="please_input_remote_screen_lock_pwd">请输入远程锁屏密码</string>
+    <string name="remote_screen_lock_pwd_length_invalid">远程锁屏密码锁必须为六位数字</string>
 
 </resources>

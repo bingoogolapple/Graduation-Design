@@ -52,6 +52,8 @@ public final class Constants {
 		public static final String LAST_LOCATION = "lastlocation";
 		public static final String ATTRIBUTION_LAST_X = "attribution_last_x";
 		public static final String ATTRIBUTION_LAST_Y = "attribution_last_y";
+		public static final String PHONE_THEFT = "phonetheft";
+		public static final String REMOTE_SCREEN_LOCK_PWD = "remoteScreenLockPwd";
 	}
 
 	public static final class dbname {

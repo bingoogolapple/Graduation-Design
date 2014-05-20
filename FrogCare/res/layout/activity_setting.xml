@@ -55,6 +55,12 @@
                 frogcare:content_off="@string/blacklist_intercept_off"
                 frogcare:content_on="@string/blacklist_intercept_on"
                 frogcare:title="@string/blacklist_intercept" />
+            <com.bingoogol.frogcare.ui.view.SettingView
+                android:id="@+id/sv_setting_phone_theft"
+                style="@style/match_wrap"
+                frogcare:content_off="@string/phone_theft_off"
+                frogcare:content_on="@string/phone_theft_on"
+                frogcare:title="@string/phone_theft" />
         </LinearLayout>
     </ScrollView>
 

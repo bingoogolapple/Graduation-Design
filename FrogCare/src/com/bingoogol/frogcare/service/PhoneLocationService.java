@@ -26,6 +26,7 @@ public class PhoneLocationService extends Service {
 
 	@Override
 	public void onCreate() {
+		super.onCreate();
 		mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 		// 查询条件
 		Criteria criteria = new Criteria();
@@ -41,7 +42,6 @@ public class PhoneLocationService extends Service {
 		Logger.i(TAG, "最好的提供者:" + provider);
 		mPhoneLocationListener = new PhoneLocationListener();
 		mLocationManager.requestLocationUpdates(provider, 0, 0, mPhoneLocationListener);
-		super.onCreate();
 	}
 
 	@Override

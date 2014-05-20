@@ -34,7 +34,13 @@
         <Button
             android:id="@+id/btn_set_remote_theft_command"
             style="@style/advance_tool_item"
+            android:layout_marginBottom="@dimen/size_divider"
             android:text="@string/set_remote_theft_command" />
+
+        <Button
+            android:id="@+id/btn_set_remote_screen_lock_pwd"
+            style="@style/advance_tool_item"
+            android:text="@string/set_remote_screen_lock_pwd" />
     </LinearLayout>
 
 </LinearLayout>
